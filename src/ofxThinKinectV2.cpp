@@ -1,5 +1,4 @@
 #include "ofxThinKinectV2.h"
-#define DEBUG_BUFFER_SIZE 40
 
 void ofxThinKinectV2::setup(int port) {
 	receiver.setup(port);
@@ -7,15 +6,15 @@ void ofxThinKinectV2::setup(int port) {
 
 void ofxThinKinectV2::update() {
 	while(receiver.hasWaitingMessages()) {
-		ofxOscMessage m;
-		receiver.getNextMessage(&m);
-		log(parse(m));
+		receiver.getNextMessage(&lastMessage);
+		lastParsedMessage = parse(lastMessage);
+		logger.log(lastParsedMessage);
 	}
 }
 
 void ofxThinKinectV2::drawDebug() {
-	for (int i = 0; i < buffer.size(); i++) {
-		ofDrawBitmapString(buffer[i], 40, i * 20);
+	for (int i = 0; i < logger.size(); i++) {
+		ofDrawBitmapString(logger.getLine(i), 40, i * 20);
 	}
 }
 
@@ -43,11 +42,4 @@ string ofxThinKinectV2::parse(ofxOscMessage message) {
 		result += " ";
 	};
 	return result + "]";
-}
-
-void ofxThinKinectV2::log(string parsedMessage) {
-	buffer.insert(buffer.begin(), parsedMessage);
-	if(buffer.size() > DEBUG_BUFFER_SIZE) {
-		buffer.pop_back();
-	}
 }
