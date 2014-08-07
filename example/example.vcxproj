@@ -91,6 +91,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Logger.cpp" />
+    <ClCompile Include="..\src\Mapper.cpp" />
+    <ClCompile Include="..\src\Skeleton.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
@@ -111,6 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Logger.h" />
+    <ClInclude Include="..\src\Mapper.h" />
+    <ClInclude Include="..\src\Skeleton.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />

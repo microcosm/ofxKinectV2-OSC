@@ -55,6 +55,12 @@
     <ClCompile Include="..\src\Logger.cpp">
       <Filter>addons\ofxThinKinectV2\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Skeleton.cpp">
+      <Filter>addons\ofxThinKinectV2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Mapper.cpp">
+      <Filter>addons\ofxThinKinectV2\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -165,6 +171,12 @@
       <Filter>addons\ofxThinKinectV2\src</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Logger.h">
+      <Filter>addons\ofxThinKinectV2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Skeleton.h">
+      <Filter>addons\ofxThinKinectV2\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Mapper.h">
       <Filter>addons\ofxThinKinectV2\src</Filter>
     </ClInclude>
   </ItemGroup>

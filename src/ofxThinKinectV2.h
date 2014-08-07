@@ -1,17 +1,20 @@
+#pragma once
 #include "ofMain.h"
-#include "ofxOscReceiver.h"
 #include "Logger.h"
+#include "Mapper.h"
+#include "Skeleton.h"
 
 class ofxThinKinectV2 {
 public:
 	void setup(int port);
 	void update();
+	vector<Skeleton>* getSkeletons();
 	void drawDebug();
 protected:
-	string parse(ofxOscMessage message);
-	
 	ofxOscReceiver receiver;
 	ofxOscMessage lastMessage;
 	string lastParsedMessage;
 	Logger logger;
+	Mapper mapper;
+	vector<Skeleton> skeletons;
 };
