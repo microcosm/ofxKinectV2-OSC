@@ -30,7 +30,7 @@ void Mapper::tokenize(string address) {
 }
 
 bool Mapper::isBody() {
-	return addressTokens[0] == "body";
+	return addressTokens[0] == "bodies";
 }
 
 Skeleton* Mapper::getSkeleton(string id) {
