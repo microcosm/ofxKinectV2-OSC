@@ -5,35 +5,91 @@ void Skeleton::init(string bodyId) {
 }
 
 void Skeleton::draw() {
+	this->drawBones();
 	this->drawJoints();
 }
 
+void Skeleton::drawBones() {
+	this->drawTorso();
+    this->drawRightArm();
+    this->drawLeftArm();
+    this->drawRightLeg();
+    this->drawLeftLeg();
+}
+
+void Skeleton::drawTorso(){
+	drawBone(getHead(), getNeck());
+	drawBone(getNeck(), getSpineShoulder());
+	drawBone(getSpineShoulder(), getSpineMid());
+	drawBone(getSpineMid(), getSpineBase());
+	drawBone(getSpineShoulder(), getShoulderRight());
+	drawBone(getSpineShoulder(), getShoulderLeft());
+	drawBone(getSpineBase(), getHipRight());
+	drawBone(getSpineBase(), getHipLeft());
+}
+
+void Skeleton::drawRightArm(){
+    drawBone(getShoulderRight(), getElbowRight());
+    drawBone(getElbowRight(), getWristRight());
+    drawBone(getWristRight(), getHandRight());
+    drawBone(getHandRight(), getHandTipRight());
+    drawBone(getWristRight(), getThumbRight());
+}
+
+void Skeleton::drawLeftArm(){
+    drawBone(getShoulderLeft(), getElbowLeft());
+    drawBone(getElbowLeft(), getWristLeft());
+    drawBone(getWristLeft(), getHandLeft());
+    drawBone(getHandLeft(), getHandTipLeft());
+    drawBone(getWristLeft(), getThumbLeft());
+}
+
+void Skeleton::drawRightLeg(){
+    drawBone(getHipRight(), getKneeRight());
+    drawBone(getKneeRight(), getAnkleRight());
+    drawBone(getAnkleRight(), getFootRight());
+}
+
+void Skeleton::drawLeftLeg(){
+    drawBone(getHipLeft(), getKneeLeft());
+    drawBone(getKneeLeft(), getAnkleLeft());
+    drawBone(getAnkleLeft(), getFootLeft());
+}
+
+void Skeleton::drawBone(ofVec3f point1, ofVec3f point2){
+	ofLine(point1, point2);
+}
+
 void Skeleton::drawJoints() {
-	drawJoint(orient(getThumbRight()));
-	drawJoint(orient(getSpineBase()));
-	drawJoint(orient(getSpineMid()));
-	drawJoint(orient(getNeck()));
-	drawJoint(orient(getHead()));
-	drawJoint(orient(getShoulderLeft()));
-	drawJoint(orient(getElbowLeft()));
-	drawJoint(orient(getWristLeft()));
-	drawJoint(orient(getHandLeft()));
-	drawJoint(orient(getShoulderRight()));
-	drawJoint(orient(getElbowRight()));
-	drawJoint(orient(getWristRight()));
-	drawJoint(orient(getHandRight()));
-	drawJoint(orient(getHipLeft()));
-	drawJoint(orient(getKneeLeft()));
-	drawJoint(orient(getAnkleLeft()));
-	drawJoint(orient(getFootLeft()));
-	drawJoint(orient(getHipRight()));
-	drawJoint(orient(getKneeRight()));
-	drawJoint(orient(getAnkleRight()));
-	drawJoint(orient(getFootRight()));
-	drawJoint(orient(getSpineShoulder()));
-	drawJoint(orient(getHandTipLeft()));
-	drawJoint(orient(getThumbLeft()));
-	drawJoint(orient(getHandTipRight()));
+	drawJoint(getThumbRight());
+	drawJoint(getSpineBase());
+	drawJoint(getSpineMid());
+	drawJoint(getNeck());
+	drawJoint(getHead());
+	drawJoint(getShoulderLeft());
+	drawJoint(getElbowLeft());
+	drawJoint(getWristLeft());
+	drawJoint(getHandLeft());
+	drawJoint(getShoulderRight());
+	drawJoint(getElbowRight());
+	drawJoint(getWristRight());
+	drawJoint(getHandRight());
+	drawJoint(getHipLeft());
+	drawJoint(getKneeLeft());
+	drawJoint(getAnkleLeft());
+	drawJoint(getFootLeft());
+	drawJoint(getHipRight());
+	drawJoint(getKneeRight());
+	drawJoint(getAnkleRight());
+	drawJoint(getFootRight());
+	drawJoint(getSpineShoulder());
+	drawJoint(getHandTipLeft());
+	drawJoint(getThumbLeft());
+	drawJoint(getHandTipRight());
+}
+
+void Skeleton::drawJoint(ofVec3f point){
+	ofCircle(point, 10);
 }
 
 ofVec3f Skeleton::orient(ofVec3f point){
@@ -43,108 +99,105 @@ ofVec3f Skeleton::orient(ofVec3f point){
 	return point;
 }
 
-void Skeleton::drawJoint(ofVec3f point){
-	ofCircle(point.x, point.y, point.z);
-}
-
+//Setters and getters
 void Skeleton::setThumbRight(ofVec3f point) {
-	this->thumbRight = point;
+	this->thumbRight = orient(point);
 }
 
 void Skeleton::setSpineBase(ofVec3f point) {
-	this->spineBase = point;
+	this->spineBase = orient(point);
 }
 
 void Skeleton::setSpineMid(ofVec3f point) {
-	this->spineMid = point;
+	this->spineMid = orient(point);
 }
 
 void Skeleton::setNeck(ofVec3f point) {
-	this->neck = point;
+	this->neck = orient(point);
 }
 
 void Skeleton::setHead(ofVec3f point) {
-	this->head = point;
+	this->head = orient(point);
 }
 
 void Skeleton::setShoulderLeft(ofVec3f point) {
-	this->shoulderLeft = point;
+	this->shoulderLeft = orient(point);
 }
 
 void Skeleton::setElbowLeft(ofVec3f point) {
-	this->elbowLeft = point;
+	this->elbowLeft = orient(point);
 }
 
 void Skeleton::setWristLeft(ofVec3f point) {
-	this->wristLeft = point;
+	this->wristLeft = orient(point);
 }
 
 void Skeleton::setHandLeft(ofVec3f point) {
-	this->handLeft = point;
+	this->handLeft = orient(point);
 }
 
 void Skeleton::setShoulderRight(ofVec3f point) {
-	this->shoulderRight = point;
+	this->shoulderRight = orient(point);
 }
 
 void Skeleton::setElbowRight(ofVec3f point) {
-	this->elbowRight = point;
+	this->elbowRight = orient(point);
 }
 
 void Skeleton::setWristRight(ofVec3f point) {
-	this->wristRight = point;
+	this->wristRight = orient(point);
 }
 
 void Skeleton::setHandRight(ofVec3f point) {
-	this->handRight = point;
+	this->handRight = orient(point);
 }
 
 void Skeleton::setHipLeft(ofVec3f point) {
-	this->hipLeft = point;
+	this->hipLeft = orient(point);
 }
 
 void Skeleton::setKneeLeft(ofVec3f point) {
-	this->kneeLeft = point;
+	this->kneeLeft = orient(point);
 }
 
 void Skeleton::setAnkleLeft(ofVec3f point) {
-	this->ankleLeft = point;
+	this->ankleLeft = orient(point);
 }
 
 void Skeleton::setFootLeft(ofVec3f point) {
-	this->footLeft = point;
+	this->footLeft = orient(point);
 }
 
 void Skeleton::setHipRight(ofVec3f point) {
-	this->hipRight = point;
+	this->hipRight = orient(point);
 }
 
 void Skeleton::setKneeRight(ofVec3f point) {
-	this->kneeRight = point;
+	this->kneeRight = orient(point);
 }
 
 void Skeleton::setAnkleRight(ofVec3f point) {
-	this->ankleRight = point;
+	this->ankleRight = orient(point);
 }
 
 void Skeleton::setFootRight(ofVec3f point) {
-	this->footRight = point;
+	this->footRight = orient(point);
 }
 
 void Skeleton::setSpineShoulder(ofVec3f point) {
-	this->spineShoulder = point;
+	this->spineShoulder = orient(point);
 }
 
 void Skeleton::setHandTipLeft(ofVec3f point) {
-	this->handTipLeft = point;
+	this->handTipLeft = orient(point);
 }
 
 void Skeleton::setThumbLeft(ofVec3f point) {
-	this->thumbLeft = point;
+	this->thumbLeft = orient(point);
 }
 
 void Skeleton::setHandTipRight(ofVec3f point) {
-	this->handTipRight = point;
+	this->handTipRight = orient(point);
 }
 
 string Skeleton::getBodyId() {

@@ -2,6 +2,7 @@
 
 void ofApp::setup(){
 	kinect.setup(12345);
+	ofSetLineWidth(8);
 }
 
 void ofApp::update(){

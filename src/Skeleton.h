@@ -5,8 +5,16 @@ class Skeleton {
 public:
 	void init(string bodyId);
 	void draw();
+	void drawBones();
+	void drawBone(ofVec3f point1, ofVec3f point2);
 	void drawJoints();
 	void drawJoint(ofVec3f point);
+	void drawTorso();
+	void drawRightArm();
+	void drawLeftArm();
+	void drawRightLeg();
+	void drawLeftLeg();
+
 	ofVec3f orient(ofVec3f point);
 
 	void setThumbRight(ofVec3f point);
