@@ -4,6 +4,11 @@
 class Skeleton {
 public:
 	void init(string bodyId);
+	void draw();
+	void drawJoints();
+	void drawJoint(ofVec3f point);
+	ofVec3f orient(ofVec3f point);
+
 	void setThumbRight(ofVec3f point);
 	void setSpineBase(ofVec3f point);
 	void setSpineMid(ofVec3f point);

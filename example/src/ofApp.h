@@ -23,5 +23,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-		ofxKinectV2OSC thinKinect;
+		ofxKinectV2OSC kinect;
+		Skeleton* skeleton;
 };

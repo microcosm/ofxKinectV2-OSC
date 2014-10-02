@@ -4,6 +4,49 @@ void Skeleton::init(string bodyId) {
 	this->bodyId = bodyId;
 }
 
+void Skeleton::draw() {
+	this->drawJoints();
+}
+
+void Skeleton::drawJoints() {
+	drawJoint(orient(getThumbRight()));
+	drawJoint(orient(getSpineBase()));
+	drawJoint(orient(getSpineMid()));
+	drawJoint(orient(getNeck()));
+	drawJoint(orient(getHead()));
+	drawJoint(orient(getShoulderLeft()));
+	drawJoint(orient(getElbowLeft()));
+	drawJoint(orient(getWristLeft()));
+	drawJoint(orient(getHandLeft()));
+	drawJoint(orient(getShoulderRight()));
+	drawJoint(orient(getElbowRight()));
+	drawJoint(orient(getWristRight()));
+	drawJoint(orient(getHandRight()));
+	drawJoint(orient(getHipLeft()));
+	drawJoint(orient(getKneeLeft()));
+	drawJoint(orient(getAnkleLeft()));
+	drawJoint(orient(getFootLeft()));
+	drawJoint(orient(getHipRight()));
+	drawJoint(orient(getKneeRight()));
+	drawJoint(orient(getAnkleRight()));
+	drawJoint(orient(getFootRight()));
+	drawJoint(orient(getSpineShoulder()));
+	drawJoint(orient(getHandTipLeft()));
+	drawJoint(orient(getThumbLeft()));
+	drawJoint(orient(getHandTipRight()));
+}
+
+ofVec3f Skeleton::orient(ofVec3f point){
+	point.x = ofMap(point.x, -1, 1, 0, ofGetWidth());
+	point.y = ofMap(point.y, -1, 1, ofGetHeight(), 0);
+	point.z = ofMap(point.z, 0, 2, 30, 10);
+	return point;
+}
+
+void Skeleton::drawJoint(ofVec3f point){
+	ofCircle(point.x, point.y, point.z);
+}
+
 void Skeleton::setThumbRight(ofVec3f point) {
 	this->thumbRight = point;
 }
