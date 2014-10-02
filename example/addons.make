@@ -1,2 +1,2 @@
 ofxOsc
-ofxThinKinectV2
+ofxKinectV2OSC

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxThinKinectV2.h"
+#include "ofxKinectV2OSC.h"
 
 class ofApp : public ofBaseApp{
 
@@ -23,5 +23,5 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-		ofxThinKinectV2 thinKinect;
+		ofxKinectV2OSC thinKinect;
 };

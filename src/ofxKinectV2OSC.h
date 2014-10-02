@@ -4,7 +4,7 @@
 #include "Mapper.h"
 #include "Skeleton.h"
 
-class ofxThinKinectV2 {
+class ofxKinectV2OSC {
 public:
 	void setup(int port);
 	void update();

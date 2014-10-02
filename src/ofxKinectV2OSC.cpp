@@ -1,11 +1,11 @@
-#include "ofxThinKinectV2.h"
+#include "ofxKinectV2OSC.h"
 
-void ofxThinKinectV2::setup(int port) {
+void ofxKinectV2OSC::setup(int port) {
 	receiver.setup(port);
 	mapper.mapTo(&skeletons);
 }
 
-void ofxThinKinectV2::update() {
+void ofxKinectV2OSC::update() {
 	while(receiver.hasWaitingMessages()) {
 		receiver.getNextMessage(&lastMessage);
 		logger.log(lastMessage);
@@ -13,11 +13,11 @@ void ofxThinKinectV2::update() {
 	}
 }
 
-vector<Skeleton>* ofxThinKinectV2::getSkeletons() {
+vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
 	return &skeletons;
 }
 
-void ofxThinKinectV2::drawDebug() {
+void ofxKinectV2OSC::drawDebug() {
 	for (int i = 0; i < logger.size(); i++) {
 		ofDrawBitmapString(logger.getLine(i), 40, i * 20);
 	}
