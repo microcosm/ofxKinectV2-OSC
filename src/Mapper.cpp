@@ -4,16 +4,15 @@ void Mapper::mapTo(vector<Skeleton>* skeletons) {
 	this->skeletons = skeletons;
 }
 
-void Mapper::map(ofxOscMessage message) {
+void Mapper::map(ofxOscMessage &_message) {
+	message = _message;
 	tokenize(message.getAddress());
 	if(isBody()) {
 		Skeleton* skeleton = getSkeleton(addressTokens[1]);
 		if(isJoint()) {
-			Joint joint = getJoint(message);
-			skeleton->setJoint(joint);
+			skeleton->setJoint(parseJoint());
 		} else if(isHand()) {
-			Hand hand = getHand(message);
-			skeleton->setHand(hand);
+			skeleton->setHand(parseHand());
 		}
 	}
 }
@@ -61,46 +60,46 @@ Skeleton* Mapper::newSkeleton(string id) {
 	return &skeletons->at(skeletons->size()-1);
 }
 
-Hand Mapper::getHand(ofxOscMessage &message) {
+Hand Mapper::parseHand() {
 	Hand hand;
-	hand.setState(getHandState(message));
-	hand.setConfidence(getHandConfidence(message));
-	hand.setPosition(getHandPosition(message));
+	hand.setState(parseHandState());
+	hand.setConfidence(parseHandConfidence());
+	hand.setPosition(parseHandPosition());
 	return hand;
 }
 
-HandState Mapper::getHandState(ofxOscMessage &message) {
+HandState Mapper::parseHandState() {
 	string state = message.getArgAsString(0);
 	if(state == "Open") return OPEN;
 	else if(state == "Closed") return CLOSED;
 	return UNKNOWN;
 }
 
-HandConfidence Mapper::getHandConfidence(ofxOscMessage &message) {
+HandConfidence Mapper::parseHandConfidence() {
 	string confidence = message.getArgAsString(1);
 	if(confidence == "High") return HIGH;
 	return LOW;
 }
 
-HandPosition Mapper::getHandPosition(ofxOscMessage &message) {
+HandPosition Mapper::parseHandPosition() {
 	string position = addressTokens[3];
 	if(position == "Left") return LEFT;
 	return RIGHT;
 }
 
-Joint Mapper::getJoint(ofxOscMessage &message) {
+Joint Mapper::parseJoint() {
 	Joint joint;
-	joint.setType(getJointType(message));
-	joint.setPoint(getJointPoint(message));
-	joint.setTrackingState(getJointTrackingState(message));
+	joint.setType(parseJointType());
+	joint.setPoint(parseJointPoint());
+	joint.setTrackingState(parseJointTrackingState());
 	return joint;
 }
 
-string Mapper::getJointType(ofxOscMessage &message) {
+string Mapper::parseJointType() {
 	return addressTokens[3];
 }
 
-ofVec3f Mapper::getJointPoint(ofxOscMessage &message) {
+ofVec3f Mapper::parseJointPoint() {
 	ofVec3f point;
 	point.x = message.getArgAsFloat(0);
 	point.y = message.getArgAsFloat(1);
@@ -108,7 +107,7 @@ ofVec3f Mapper::getJointPoint(ofxOscMessage &message) {
 	return orient(point);
 }
 
-string Mapper::getJointTrackingState(ofxOscMessage &message) {
+string Mapper::parseJointTrackingState() {
 	return message.getArgAsString(3);
 }
 

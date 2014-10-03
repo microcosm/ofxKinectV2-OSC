@@ -8,7 +8,7 @@
 class Mapper {
 public:
 	void mapTo(vector<Skeleton>* skeletons);
-	void map(ofxOscMessage message);
+	void map(ofxOscMessage &_message);
 	void refresh();
 
 protected:
@@ -20,18 +20,19 @@ protected:
 	Skeleton* getSkeleton(string id);
 	Skeleton* newSkeleton(string id);
 
-	Hand getHand(ofxOscMessage &message);
-	HandState getHandState(ofxOscMessage &message);
-	HandConfidence getHandConfidence(ofxOscMessage &message);
-	HandPosition getHandPosition(ofxOscMessage &message);
+	Hand parseHand();
+	HandState parseHandState();
+	HandConfidence parseHandConfidence();
+	HandPosition parseHandPosition();
 
-	Joint getJoint(ofxOscMessage &message);
-	string getJointType(ofxOscMessage &message);
-	ofVec3f getJointPoint(ofxOscMessage &message);
-	string getJointTrackingState(ofxOscMessage &message);
+	Joint parseJoint();
+	string parseJointType();
+	ofVec3f parseJointPoint();
+	string parseJointTrackingState();
 
 	ofVec3f orient(ofVec3f &point);
 	
 	vector<Skeleton>* skeletons;
 	vector<string> addressTokens;
+	ofxOscMessage message;
 };
