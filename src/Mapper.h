@@ -2,6 +2,7 @@
 #include "ofMain.h"
 #include "Skeleton.h"
 #include "Joint.h"
+#include "Hand.h"
 #include "ofxOscReceiver.h"
 
 class Mapper {
@@ -13,14 +14,21 @@ public:
 protected:
 	void tokenize(string message);
 	bool isBody();
+	bool isJoint();
+	bool isHand();
 
 	Skeleton* getSkeleton(string id);
 	Skeleton* newSkeleton(string id);
 
+	Hand getHand(ofxOscMessage &message);
+	HandState getHandState(ofxOscMessage &message);
+	HandConfidence getHandConfidence(ofxOscMessage &message);
+	HandPosition getHandPosition(ofxOscMessage &message);
+
 	Joint getJoint(ofxOscMessage &message);
-	string getType(ofxOscMessage &message);
-	ofVec3f getPoint(ofxOscMessage &message);
-	string getTrackingState(ofxOscMessage &message);
+	string getJointType(ofxOscMessage &message);
+	ofVec3f getJointPoint(ofxOscMessage &message);
+	string getJointTrackingState(ofxOscMessage &message);
 
 	ofVec3f orient(ofVec3f &point);
 	

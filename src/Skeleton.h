@@ -1,11 +1,14 @@
 #pragma once
 #include "ofMain.h"
 #include "Joint.h"
+#include "Hand.h"
 
 class Skeleton {
 public:
 	void init(string bodyId);
 	void draw();
+	void drawHands();
+	void drawHand(Hand &hand, Joint &handJoint);
 	void drawBones();
 	void drawBone(Joint &joint1, Joint &joint2);
 	void drawJoints();
@@ -18,7 +21,9 @@ public:
 	TrackingState combinedTrackingState(Joint &joint1, Joint &joint2);
 
 	//Setters and getters
+	void setHand(Hand &_hand);
 	void setJoint(Joint &_joint);
+
 	void setThumbRight(Joint &joint);
 	void setSpineBase(Joint &joint);
 	void setSpineMid(Joint &joint);
@@ -74,6 +79,8 @@ public:
 
 protected:
 	string bodyId;
+	Hand leftHand;
+	Hand rightHand;
 	Joint thumbRight;
 	Joint spineBase;
 	Joint spineMid;

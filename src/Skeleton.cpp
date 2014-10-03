@@ -5,8 +5,22 @@ void Skeleton::init(string bodyId) {
 }
 
 void Skeleton::draw() {
+	drawHands();
 	drawBones();
 	drawJoints();
+}
+
+void Skeleton::drawHands() {
+	drawHand(leftHand, handLeft);
+	drawHand(rightHand, handRight);
+}
+
+void Skeleton::drawHand(Hand &hand, Joint &handJoint) {
+	if(hand.isConfidentlyDetected()) {
+		if(hand.isOpen()) ofSetColor(ofColor::green);
+		if(hand.isClosed()) ofSetColor(ofColor::red);
+		ofCircle(handJoint.getPoint(), 25);
+	}
 }
 
 void Skeleton::drawBones() {
@@ -112,6 +126,14 @@ TrackingState Skeleton::combinedTrackingState(Joint &joint1, Joint &joint2) {
 }
 
 //Setters and getters
+void Skeleton::setHand(Hand &hand) {
+	if(hand.isLeft()) {
+		leftHand = hand;
+	} else {
+		rightHand = hand;
+	}
+}
+
 void Skeleton::setJoint(Joint &joint) {
 	string jointType = joint.getType();
 

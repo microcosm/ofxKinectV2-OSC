@@ -22,6 +22,6 @@ class ofApp : public ofBaseApp{
 		
 		ofxKinectV2OSC kinect;
 		Skeleton* skeleton;
-		bool drawDebug, drawJoints, drawBones;
+		bool drawDebug, drawJoints, drawBones, drawHands;
 		ofTrueTypeFont smallFont, largeFont;
 };

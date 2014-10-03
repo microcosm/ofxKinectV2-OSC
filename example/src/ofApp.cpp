@@ -8,7 +8,7 @@ void ofApp::setup(){
 	kinect.loadFont(smallFont);
 
 	drawDebug = false;
-	drawJoints = drawBones = true;
+	drawJoints = drawBones = drawHands = true;
 
 	ofSetLineWidth(8);
 	ofSetFrameRate(60);
@@ -26,6 +26,7 @@ void ofApp::draw(){
 	vector<Skeleton>* skeletons = kinect.getSkeletons();
 	for(int i = 0; i < skeletons->size(); i++) {
 		skeleton = &skeletons->at(i);
+		if(drawHands) skeleton->drawHands();
 		if(drawBones) skeleton->drawBones();
 		if(drawJoints) skeleton->drawJoints();
 	}
@@ -34,6 +35,7 @@ void ofApp::draw(){
 	commands.append("d = debug\n");
 	commands.append("j = joints\n");
 	commands.append("b = bones\n");
+	commands.append("h = hands\n");
 
 	ofSetColor(ofColor::white);
 	smallFont.drawString(commands, 20, 40);
@@ -44,6 +46,7 @@ void ofApp::keyPressed(int key){
 	if(key == 'd') drawDebug = !drawDebug;
 	if(key == 'j') drawJoints = !drawJoints;
 	if(key == 'b') drawBones = !drawBones;
+	if(key == 'h') drawHands = !drawHands;
 }
 
 void ofApp::keyReleased(int key){

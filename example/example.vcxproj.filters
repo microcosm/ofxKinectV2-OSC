@@ -64,6 +64,9 @@
     <ClCompile Include="..\src\Joint.cpp">
       <Filter>addons\ofxKinectV2OSC\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Hand.cpp">
+      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -183,6 +186,9 @@
       <Filter>addons\ofxKinectV2OSC\src</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Joint.h">
+      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Hand.h">
       <Filter>addons\ofxKinectV2OSC\src</Filter>
     </ClInclude>
   </ItemGroup>

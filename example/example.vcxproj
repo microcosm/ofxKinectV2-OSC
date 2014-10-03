@@ -90,6 +90,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Hand.cpp" />
     <ClCompile Include="..\src\Joint.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -113,6 +114,7 @@
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Hand.h" />
     <ClInclude Include="..\src\Joint.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
