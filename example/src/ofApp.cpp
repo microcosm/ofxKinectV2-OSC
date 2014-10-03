@@ -19,6 +19,8 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
+	ofBackground(ofColor::darkGray);
+
 	if(drawDebug) {
 		largeFont.drawString("fps:\n" + ofToString(ofGetFrameRate()), 20, ofGetHeight() - 100);
 		kinect.drawDebug();
@@ -32,10 +34,11 @@ void ofApp::draw(){
 	}
 
 	string commands = "COMMANDS\n\n";
-	commands.append("d = draw debug\n");
-	commands.append("j = draw joints\n");
-	commands.append("b = draw bones\n");
+	commands.append("d = debug\n");
+	commands.append("j = joints\n");
+	commands.append("b = bones\n");
 
+	ofSetColor(ofColor::white);
 	smallFont.drawString(commands, 20, 40);
 }
 

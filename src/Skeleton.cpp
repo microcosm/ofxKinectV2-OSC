@@ -5,16 +5,16 @@ void Skeleton::init(string bodyId) {
 }
 
 void Skeleton::draw() {
-	this->drawBones();
-	this->drawJoints();
+	drawBones();
+	drawJoints();
 }
 
 void Skeleton::drawBones() {
-	this->drawTorso();
-    this->drawRightArm();
-    this->drawLeftArm();
-    this->drawRightLeg();
-    this->drawLeftLeg();
+	drawTorso();
+    drawRightArm();
+    drawLeftArm();
+    drawRightLeg();
+    drawLeftLeg();
 }
 
 void Skeleton::drawTorso(){
@@ -57,6 +57,17 @@ void Skeleton::drawLeftLeg(){
 }
 
 void Skeleton::drawBone(Joint &joint1, Joint &joint2){
+
+	TrackingState trackingState = combinedTrackingState(joint1, joint2);
+
+	if(trackingState == TRACKED) {
+		ofSetLineWidth(10);
+		ofSetColor(ofColor::white);
+	} else if(trackingState == INFERRED || trackingState == NOT_TRACKED) {
+		ofSetLineWidth(1);
+		ofSetColor(ofColor::gray);
+	}
+
 	ofLine(joint1.getPoint(), joint2.getPoint());
 }
 
@@ -89,7 +100,15 @@ void Skeleton::drawJoints() {
 }
 
 void Skeleton::drawJoint(Joint &joint){
+	ofSetColor(ofColor::lightGray);
 	ofCircle(joint.getPoint(), 10);
+}
+
+TrackingState Skeleton::combinedTrackingState(Joint &joint1, Joint &joint2) {
+	if (joint1.isTracked() && joint2.isTracked()) return TRACKED;
+    if (joint1.isInferred() && joint2.isTracked()) return INFERRED;
+    if (joint1.isTracked() && joint2.isInferred()) return INFERRED;
+    return NOT_TRACKED;
 }
 
 //Setters and getters

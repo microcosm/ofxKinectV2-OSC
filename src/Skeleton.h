@@ -15,7 +15,9 @@ public:
 	void drawLeftArm();
 	void drawRightLeg();
 	void drawLeftLeg();
+	TrackingState combinedTrackingState(Joint &joint1, Joint &joint2);
 
+	//Setters and getters
 	void setJoint(Joint &_joint);
 	void setThumbRight(Joint &joint);
 	void setSpineBase(Joint &joint);

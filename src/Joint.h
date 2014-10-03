@@ -1,6 +1,10 @@
 #pragma once
 #include "ofMain.h"
 
+enum TrackingState {
+	TRACKED, NOT_TRACKED, INFERRED
+};
+
 class Joint {
 public:
 	void setType(string _type);
@@ -9,9 +13,14 @@ public:
 
 	string getType();
 	ofVec3f getPoint();
-	string getTrackingState();
+	TrackingState getTrackingState();
+	
+	bool isTracked();
+	bool isInferred();
+	bool isNotTracked();
 
 protected:
-	string type, trackingState;
+	string type;
+	TrackingState trackingState;
 	ofVec3f point;
 };
