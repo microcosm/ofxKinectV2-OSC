@@ -28,7 +28,7 @@ protected:
 	Joint parseJoint();
 	string parseJointType();
 	ofVec3f parseJointPoint();
-	string parseJointTrackingState();
+	TrackingState parseJointTrackingState();
 
 	ofVec3f orient(ofVec3f &point);
 	

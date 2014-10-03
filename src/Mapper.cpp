@@ -107,8 +107,11 @@ ofVec3f Mapper::parseJointPoint() {
 	return orient(point);
 }
 
-string Mapper::parseJointTrackingState() {
-	return message.getArgAsString(3);
+TrackingState Mapper::parseJointTrackingState() {
+	string trackingState = message.getArgAsString(3);
+	if(trackingState == "Tracked") return TRACKED;
+	else if(trackingState == "Inferred") return INFERRED;
+	else return NOT_TRACKED;
 }
 
 ofVec3f Mapper::orient(ofVec3f &point){

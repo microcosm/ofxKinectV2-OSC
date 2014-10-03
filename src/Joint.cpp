@@ -8,10 +8,8 @@ void Joint::setPoint(ofVec3f _point) {
 	point = _point;
 }
 
-void Joint::setTrackingState(string _trackingState) {
-	if(_trackingState == "Tracked") trackingState = TRACKED;
-	else if(_trackingState == "Inferred") trackingState = INFERRED;
-	else trackingState = NOT_TRACKED;
+void Joint::setTrackingState(TrackingState _trackingState) {
+	trackingState = _trackingState;
 }
 
 string Joint::getType() {
