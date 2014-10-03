@@ -18,13 +18,19 @@ vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
 }
 
 void ofxKinectV2OSC::drawDebug() {
-	ofDrawBitmapString("DEBUG", 170, 20);
+	string debug = "DEBUG\n";
 
 	if(logger.size() == 0) {
-		ofDrawBitmapString("No data received... try re-initiating the source", 170, 40);
+		debug.append("\nNo data received... try re-initiating the source");
 	} else {
 		for (int i = 0; i < logger.size(); i++) {
-			ofDrawBitmapString(logger.getLine(i), 170, 60 + i * 20);
+			debug.append("\n" + logger.getLine(i));
 		}
 	}
+
+	font.drawString(debug, 220, 40);
+}
+
+void ofxKinectV2OSC::loadFont(ofTrueTypeFont &_font) {
+	font = _font;
 }

@@ -10,6 +10,8 @@ public:
 	void update();
 	vector<Skeleton>* getSkeletons();
 	void drawDebug();
+	void loadFont(ofTrueTypeFont &_font);
+
 protected:
 	ofxOscReceiver receiver;
 	ofxOscMessage lastMessage;
@@ -17,4 +19,5 @@ protected:
 	Logger logger;
 	Mapper mapper;
 	vector<Skeleton> skeletons;
+	ofTrueTypeFont font;
 };

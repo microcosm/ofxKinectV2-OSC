@@ -9,9 +9,6 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-		void drawSkeleton(Skeleton* skeleton);
-		void drawJoint(ofVec3f point);
-		ofVec3f orient(ofVec3f point);
 
 		void keyPressed(int key);
 		void keyReleased(int key);
@@ -26,5 +23,5 @@ class ofApp : public ofBaseApp{
 		ofxKinectV2OSC kinect;
 		Skeleton* skeleton;
 		bool drawDebug, drawJoints, drawBones;
-		ofTrueTypeFont font;
+		ofTrueTypeFont smallFont, largeFont;
 };
