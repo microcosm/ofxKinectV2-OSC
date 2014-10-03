@@ -19,12 +19,9 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
-	ofBackground(ofColor::darkGray);
 
-	if(drawDebug) {
-		largeFont.drawString("fps:\n" + ofToString(ofGetFrameRate()), 20, ofGetHeight() - 100);
-		kinect.drawDebug();
-	}
+	ofBackground(ofColor::darkGray);
+	if(drawDebug) kinect.drawDebug();
 	
 	vector<Skeleton>* skeletons = kinect.getSkeletons();
 	for(int i = 0; i < skeletons->size(); i++) {
@@ -40,6 +37,7 @@ void ofApp::draw(){
 
 	ofSetColor(ofColor::white);
 	smallFont.drawString(commands, 20, 40);
+	largeFont.drawString("fps:\n" + ofToString(ofGetFrameRate()), 20, ofGetHeight() - 100);
 }
 
 void ofApp::keyPressed(int key){
