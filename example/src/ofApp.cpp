@@ -3,6 +3,9 @@
 void ofApp::setup(){
 	kinect.setup(12345);
 	ofSetLineWidth(8);
+	drawDebug = false;
+	drawJoints = drawBones = true;
+
 }
 
 void ofApp::update(){
@@ -10,17 +13,28 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
-	kinect.drawDebug();
+	if(drawDebug) kinect.drawDebug();
+	
 	vector<Skeleton>* skeletons = kinect.getSkeletons();
 
 	for(int i = 0; i < skeletons->size(); i++) {
 		skeleton = &skeletons->at(i);
-		skeleton->draw();
+		if(drawBones) skeleton->drawBones();
+		if(drawJoints) skeleton->drawJoints();
 	}
+
+	string instructions = "";
+	instructions.append("d = draw debug\n");
+	instructions.append("j = draw joints\n");
+	instructions.append("b = draw bones\n");
+
+	ofDrawBitmapString(instructions, 20, 20);
 }
 
 void ofApp::keyPressed(int key){
-
+	if(key == 'd') drawDebug = !drawDebug;
+	if(key == 'j') drawJoints = !drawJoints;
+	if(key == 'b') drawBones = !drawBones;
 }
 
 void ofApp::keyReleased(int key){

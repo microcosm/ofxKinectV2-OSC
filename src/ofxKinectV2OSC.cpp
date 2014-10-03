@@ -18,7 +18,13 @@ vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
 }
 
 void ofxKinectV2OSC::drawDebug() {
-	for (int i = 0; i < logger.size(); i++) {
-		ofDrawBitmapString(logger.getLine(i), 40, i * 20);
+	ofDrawBitmapString("DEBUG", 170, 20);
+
+	if(logger.size() == 0) {
+		ofDrawBitmapString("No data received... try re-initiating the source", 170, 40);
+	} else {
+		for (int i = 0; i < logger.size(); i++) {
+			ofDrawBitmapString(logger.getLine(i), 170, 60 + i * 20);
+		}
 	}
 }
