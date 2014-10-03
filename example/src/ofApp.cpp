@@ -5,7 +5,8 @@ void ofApp::setup(){
 	ofSetLineWidth(8);
 	drawDebug = false;
 	drawJoints = drawBones = true;
-
+	font.loadFont("selena.otf", 48); //http://openfontlibrary.org/en/font/selena
+	ofSetFrameRate(60);
 }
 
 void ofApp::update(){
@@ -13,7 +14,10 @@ void ofApp::update(){
 }
 
 void ofApp::draw(){
-	if(drawDebug) kinect.drawDebug();
+	if(drawDebug) {
+		font.drawString("fps:\n" + ofToString(ofGetFrameRate()), 20, ofGetHeight() - 100);
+		kinect.drawDebug();
+	}
 	
 	vector<Skeleton>* skeletons = kinect.getSkeletons();
 
