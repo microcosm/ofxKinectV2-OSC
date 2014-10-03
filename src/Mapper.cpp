@@ -8,9 +8,8 @@ void Mapper::map(ofxOscMessage message) {
 	tokenize(message.getAddress());
 	if(isBody()) {
 		Skeleton* skeleton = getSkeleton(addressTokens[1]);
-		string jointType = addressTokens[3];
-		ofVec3f point = getPoint(message);
-		assign(skeleton, jointType, point);
+		Joint joint = getJoint(message);
+		skeleton->setJoint(joint);
 	}
 }
 
@@ -46,67 +45,36 @@ Skeleton* Mapper::newSkeleton(string id) {
 	Skeleton skeleton;
 	skeleton.init(id);
 	skeletons->push_back(skeleton);
-	return &skeleton;
+	return &skeletons->at(skeletons->size()-1);
 }
 
-ofVec3f Mapper::getPoint(ofxOscMessage message) {
+Joint Mapper::getJoint(ofxOscMessage &message) {
+	Joint joint;
+	joint.setType(getType(message));
+	joint.setPoint(getPoint(message));
+	joint.setTrackingState(getTrackingState(message));
+	return joint;
+}
+
+string Mapper::getType(ofxOscMessage &message) {
+	return addressTokens[3];
+}
+
+ofVec3f Mapper::getPoint(ofxOscMessage &message) {
 	ofVec3f point;
 	point.x = message.getArgAsFloat(0);
 	point.y = message.getArgAsFloat(1);
 	point.z = message.getArgAsFloat(2);
-	return point;
+	return orient(point);
 }
 
-void Mapper::assign(Skeleton* skeleton, string jointType, ofVec3f point) {
-	if (jointType == "ThumbRight") {
-		skeleton->setThumbRight(point);
-	} else if (jointType == "SpineBase") {
-		skeleton->setSpineBase(point);
-	} else if (jointType == "SpineMid") {
-		skeleton->setSpineMid(point);
-	} else if (jointType == "Neck") {
-		skeleton->setNeck(point);
-	} else if (jointType == "Head") {
-		skeleton->setHead(point);
-	} else if (jointType == "ShoulderLeft") {
-		skeleton->setShoulderLeft(point);
-	} else if (jointType == "ElbowLeft") {
-		skeleton->setElbowLeft(point);
-	} else if (jointType == "WristLeft") {
-		skeleton->setWristLeft(point);
-	} else if (jointType == "HandLeft") {
-		skeleton->setHandLeft(point);
-	} else if (jointType == "ShoulderRight") {
-		skeleton->setShoulderRight(point);
-	} else if (jointType == "ElbowRight") {
-		skeleton->setElbowRight(point);
-	} else if (jointType == "WristRight") {
-		skeleton->setWristRight(point);
-	} else if (jointType == "HandRight") {
-		skeleton->setHandRight(point);
-	} else if (jointType == "HipLeft") {
-		skeleton->setHipLeft(point);
-	} else if (jointType == "KneeLeft") {
-		skeleton->setKneeLeft(point);
-	} else if (jointType == "AnkleLeft") {
-		skeleton->setAnkleLeft(point);
-	} else if (jointType == "FootLeft") {
-		skeleton->setFootLeft(point);
-	} else if (jointType == "HipRight") {
-		skeleton->setHipRight(point);
-	} else if (jointType == "KneeRight") {
-		skeleton->setKneeRight(point);
-	} else if (jointType == "AnkleRight") {
-		skeleton->setAnkleRight(point);
-	} else if (jointType == "FootRight") {
-		skeleton->setFootRight(point);
-	} else if (jointType == "SpineShoulder") {
-		skeleton->setSpineShoulder(point);
-	} else if (jointType == "HandTipLeft") {
-		skeleton->setHandTipLeft(point);
-	} else if (jointType == "ThumbLeft") {
-		skeleton->setThumbLeft(point);
-	} else if (jointType == "HandTipRight") {
-		skeleton->setHandTipRight(point);
-	}
+string Mapper::getTrackingState(ofxOscMessage &message) {
+	return message.getArgAsString(3);
+}
+
+ofVec3f Mapper::orient(ofVec3f &point){
+	point.x = ofMap(point.x, -1, 1, 0, ofGetWidth());
+	point.y = ofMap(point.y, -1, 1, ofGetHeight(), 0);
+	point.z = ofMap(point.z, 0, 2, 30, 10);
+	return point;
 }

@@ -56,8 +56,8 @@ void Skeleton::drawLeftLeg(){
     drawBone(getAnkleLeft(), getFootLeft());
 }
 
-void Skeleton::drawBone(ofVec3f point1, ofVec3f point2){
-	ofLine(point1, point2);
+void Skeleton::drawBone(Joint &joint1, Joint &joint2){
+	ofLine(joint1.getPoint(), joint2.getPoint());
 }
 
 void Skeleton::drawJoints() {
@@ -88,218 +88,267 @@ void Skeleton::drawJoints() {
 	drawJoint(getHandTipRight());
 }
 
-void Skeleton::drawJoint(ofVec3f point){
-	ofCircle(point, 10);
-}
-
-ofVec3f Skeleton::orient(ofVec3f point){
-	point.x = ofMap(point.x, -1, 1, 0, ofGetWidth());
-	point.y = ofMap(point.y, -1, 1, ofGetHeight(), 0);
-	point.z = ofMap(point.z, 0, 2, 30, 10);
-	return point;
+void Skeleton::drawJoint(Joint &joint){
+	ofCircle(joint.getPoint(), 10);
 }
 
 //Setters and getters
-void Skeleton::setThumbRight(ofVec3f point) {
-	this->thumbRight = orient(point);
+void Skeleton::setJoint(Joint &joint) {
+	string jointType = joint.getType();
+
+	if (jointType == "ThumbRight") {
+		setThumbRight(joint);
+	} else if (jointType == "SpineBase") {
+		setSpineBase(joint);
+	} else if (jointType == "SpineMid") {
+		setSpineMid(joint);
+	} else if (jointType == "Neck") {
+		setNeck(joint);
+	} else if (jointType == "Head") {
+		setHead(joint);
+	} else if (jointType == "ShoulderLeft") {
+		setShoulderLeft(joint);
+	} else if (jointType == "ElbowLeft") {
+		setElbowLeft(joint);
+	} else if (jointType == "WristLeft") {
+		setWristLeft(joint);
+	} else if (jointType == "HandLeft") {
+		setHandLeft(joint);
+	} else if (jointType == "ShoulderRight") {
+		setShoulderRight(joint);
+	} else if (jointType == "ElbowRight") {
+		setElbowRight(joint);
+	} else if (jointType == "WristRight") {
+		setWristRight(joint);
+	} else if (jointType == "HandRight") {
+		setHandRight(joint);
+	} else if (jointType == "HipLeft") {
+		setHipLeft(joint);
+	} else if (jointType == "KneeLeft") {
+		setKneeLeft(joint);
+	} else if (jointType == "AnkleLeft") {
+		setAnkleLeft(joint);
+	} else if (jointType == "FootLeft") {
+		setFootLeft(joint);
+	} else if (jointType == "HipRight") {
+		setHipRight(joint);
+	} else if (jointType == "KneeRight") {
+		setKneeRight(joint);
+	} else if (jointType == "AnkleRight") {
+		setAnkleRight(joint);
+	} else if (jointType == "FootRight") {
+		setFootRight(joint);
+	} else if (jointType == "SpineShoulder") {
+		setSpineShoulder(joint);
+	} else if (jointType == "HandTipLeft") {
+		setHandTipLeft(joint);
+	} else if (jointType == "ThumbLeft") {
+		setThumbLeft(joint);
+	} else if (jointType == "HandTipRight") {
+		setHandTipRight(joint);
+	}
 }
 
-void Skeleton::setSpineBase(ofVec3f point) {
-	this->spineBase = orient(point);
+void Skeleton::setThumbRight(Joint &joint) {
+	this->thumbRight = joint;
 }
 
-void Skeleton::setSpineMid(ofVec3f point) {
-	this->spineMid = orient(point);
+void Skeleton::setSpineBase(Joint &joint) {
+	this->spineBase = joint;
 }
 
-void Skeleton::setNeck(ofVec3f point) {
-	this->neck = orient(point);
+void Skeleton::setSpineMid(Joint &joint) {
+	this->spineMid = joint;
 }
 
-void Skeleton::setHead(ofVec3f point) {
-	this->head = orient(point);
+void Skeleton::setNeck(Joint &joint) {
+	this->neck = joint;
 }
 
-void Skeleton::setShoulderLeft(ofVec3f point) {
-	this->shoulderLeft = orient(point);
+void Skeleton::setHead(Joint &joint) {
+	this->head = joint;
 }
 
-void Skeleton::setElbowLeft(ofVec3f point) {
-	this->elbowLeft = orient(point);
+void Skeleton::setShoulderLeft(Joint &joint) {
+	this->shoulderLeft = joint;
 }
 
-void Skeleton::setWristLeft(ofVec3f point) {
-	this->wristLeft = orient(point);
+void Skeleton::setElbowLeft(Joint &joint) {
+	this->elbowLeft = joint;
 }
 
-void Skeleton::setHandLeft(ofVec3f point) {
-	this->handLeft = orient(point);
+void Skeleton::setWristLeft(Joint &joint) {
+	this->wristLeft = joint;
 }
 
-void Skeleton::setShoulderRight(ofVec3f point) {
-	this->shoulderRight = orient(point);
+void Skeleton::setHandLeft(Joint &joint) {
+	this->handLeft = joint;
 }
 
-void Skeleton::setElbowRight(ofVec3f point) {
-	this->elbowRight = orient(point);
+void Skeleton::setShoulderRight(Joint &joint) {
+	this->shoulderRight = joint;
 }
 
-void Skeleton::setWristRight(ofVec3f point) {
-	this->wristRight = orient(point);
+void Skeleton::setElbowRight(Joint &joint) {
+	this->elbowRight = joint;
 }
 
-void Skeleton::setHandRight(ofVec3f point) {
-	this->handRight = orient(point);
+void Skeleton::setWristRight(Joint &joint) {
+	this->wristRight = joint;
 }
 
-void Skeleton::setHipLeft(ofVec3f point) {
-	this->hipLeft = orient(point);
+void Skeleton::setHandRight(Joint &joint) {
+	this->handRight = joint;
 }
 
-void Skeleton::setKneeLeft(ofVec3f point) {
-	this->kneeLeft = orient(point);
+void Skeleton::setHipLeft(Joint &joint) {
+	this->hipLeft = joint;
 }
 
-void Skeleton::setAnkleLeft(ofVec3f point) {
-	this->ankleLeft = orient(point);
+void Skeleton::setKneeLeft(Joint &joint) {
+	this->kneeLeft = joint;
 }
 
-void Skeleton::setFootLeft(ofVec3f point) {
-	this->footLeft = orient(point);
+void Skeleton::setAnkleLeft(Joint &joint) {
+	this->ankleLeft = joint;
 }
 
-void Skeleton::setHipRight(ofVec3f point) {
-	this->hipRight = orient(point);
+void Skeleton::setFootLeft(Joint &joint) {
+	this->footLeft = joint;
 }
 
-void Skeleton::setKneeRight(ofVec3f point) {
-	this->kneeRight = orient(point);
+void Skeleton::setHipRight(Joint &joint) {
+	this->hipRight = joint;
 }
 
-void Skeleton::setAnkleRight(ofVec3f point) {
-	this->ankleRight = orient(point);
+void Skeleton::setKneeRight(Joint &joint) {
+	this->kneeRight = joint;
 }
 
-void Skeleton::setFootRight(ofVec3f point) {
-	this->footRight = orient(point);
+void Skeleton::setAnkleRight(Joint &joint) {
+	this->ankleRight = joint;
 }
 
-void Skeleton::setSpineShoulder(ofVec3f point) {
-	this->spineShoulder = orient(point);
+void Skeleton::setFootRight(Joint &joint) {
+	this->footRight = joint;
 }
 
-void Skeleton::setHandTipLeft(ofVec3f point) {
-	this->handTipLeft = orient(point);
+void Skeleton::setSpineShoulder(Joint &joint) {
+	this->spineShoulder = joint;
 }
 
-void Skeleton::setThumbLeft(ofVec3f point) {
-	this->thumbLeft = orient(point);
+void Skeleton::setHandTipLeft(Joint &joint) {
+	this->handTipLeft = joint;
 }
 
-void Skeleton::setHandTipRight(ofVec3f point) {
-	this->handTipRight = orient(point);
+void Skeleton::setThumbLeft(Joint &joint) {
+	this->thumbLeft = joint;
+}
+
+void Skeleton::setHandTipRight(Joint &joint) {
+	this->handTipRight = joint;
 }
 
 string Skeleton::getBodyId() {
 	return this->bodyId;
 }
 
-ofVec3f Skeleton::getThumbRight() {
+Joint Skeleton::getThumbRight() {
 	return this->thumbRight;
 }
 
-ofVec3f Skeleton::getSpineBase() {
+Joint Skeleton::getSpineBase() {
 	return this->spineBase;
 }
 
-ofVec3f Skeleton::getSpineMid() {
+Joint Skeleton::getSpineMid() {
 	return this->spineMid;
 }
 
-ofVec3f Skeleton::getNeck() {
+Joint Skeleton::getNeck() {
 	return this->neck;
 }
 
-ofVec3f Skeleton::getHead() {
+Joint Skeleton::getHead() {
 	return this->head;
 }
 
-ofVec3f Skeleton::getShoulderLeft() {
+Joint Skeleton::getShoulderLeft() {
 	return this->shoulderLeft;
 }
 
-ofVec3f Skeleton::getElbowLeft() {
+Joint Skeleton::getElbowLeft() {
 	return this->elbowLeft;
 }
 
-ofVec3f Skeleton::getWristLeft() {
+Joint Skeleton::getWristLeft() {
 	return this->wristLeft;
 }
 
-ofVec3f Skeleton::getHandLeft() {
+Joint Skeleton::getHandLeft() {
 	return this->handLeft;
 }
 
-ofVec3f Skeleton::getShoulderRight() {
+Joint Skeleton::getShoulderRight() {
 	return this->shoulderRight;
 }
 
-ofVec3f Skeleton::getElbowRight() {
+Joint Skeleton::getElbowRight() {
 	return this->elbowRight;
 }
 
-ofVec3f Skeleton::getWristRight() {
+Joint Skeleton::getWristRight() {
 	return this->wristRight;
 }
 
-ofVec3f Skeleton::getHandRight() {
+Joint Skeleton::getHandRight() {
 	return this->handRight;
 }
 
-ofVec3f Skeleton::getHipLeft() {
+Joint Skeleton::getHipLeft() {
 	return this->hipLeft;
 }
 
-ofVec3f Skeleton::getKneeLeft() {
+Joint Skeleton::getKneeLeft() {
 	return this->kneeLeft;
 }
 
-ofVec3f Skeleton::getAnkleLeft() {
+Joint Skeleton::getAnkleLeft() {
 	return this->ankleLeft;
 }
 
-ofVec3f Skeleton::getFootLeft() {
+Joint Skeleton::getFootLeft() {
 	return this->footLeft;
 }
 
-ofVec3f Skeleton::getHipRight() {
+Joint Skeleton::getHipRight() {
 	return this->hipRight;
 }
 
-ofVec3f Skeleton::getKneeRight() {
+Joint Skeleton::getKneeRight() {
 	return this->kneeRight;
 }
 
-ofVec3f Skeleton::getAnkleRight() {
+Joint Skeleton::getAnkleRight() {
 	return this->ankleRight;
 }
 
-ofVec3f Skeleton::getFootRight() {
+Joint Skeleton::getFootRight() {
 	return this->footRight;
 }
 
-ofVec3f Skeleton::getSpineShoulder() {
+Joint Skeleton::getSpineShoulder() {
 	return this->spineShoulder;
 }
 
-ofVec3f Skeleton::getHandTipLeft() {
+Joint Skeleton::getHandTipLeft() {
 	return this->handTipLeft;
 }
 
-ofVec3f Skeleton::getThumbLeft() {
+Joint Skeleton::getThumbLeft() {
 	return this->thumbLeft;
 }
 
-ofVec3f Skeleton::getHandTipRight() {
+Joint Skeleton::getHandTipRight() {
 	return this->handTipRight;
 }
