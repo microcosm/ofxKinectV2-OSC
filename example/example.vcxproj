@@ -93,6 +93,9 @@
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Logger.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Mapper.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Parser.cpp" />
     <ClCompile Include="src\Draw\BodyRenderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -110,14 +113,15 @@
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Logger.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Mapper.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Logger.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Mapper.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Parser.h" />
     <ClInclude Include="src\Draw\BodyRenderer.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
@@ -140,8 +144,6 @@
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Logger.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Mapper.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include "ofMain.h"
-#include "Logger.h"
-#include "Mapper.h"
+#include "DataTransform/Logger.h"
+#include "DataTransform/Mapper.h"
 #include "Body/Skeleton.h"
 
 class ofxKinectV2OSC {

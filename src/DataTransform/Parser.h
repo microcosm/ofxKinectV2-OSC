@@ -1,38 +1,32 @@
 #pragma once
 #include "ofMain.h"
 #include "Body/Skeleton.h"
-#include "Body/Joint.h"
-#include "Body/Hand.h"
 #include "ofxOscReceiver.h"
 
-class Mapper {
+class Parser {
 public:
-	void mapTo(vector<Skeleton>* skeletons);
-	void map(ofxOscMessage &_message);
-	void refresh();
+	void setMessage(ofxOscMessage messageToParse);
 
-protected:
-	void tokenize(string message);
+	string parseBodyId();
+	Hand parseHand();
+	Joint parseJoint();
+
 	bool isBody();
 	bool isJoint();
 	bool isHand();
 
-	Skeleton* getSkeleton(string id);
-	Skeleton* newSkeleton(string id);
-
-	Hand parseHand();
+protected:
 	HandState parseHandState();
 	HandConfidence parseHandConfidence();
 	HandPosition parseHandPosition();
 
-	Joint parseJoint();
 	string parseJointType();
 	ofVec3f parseJointPoint();
 	TrackingState parseJointTrackingState();
 
+	void tokenize(string address);
 	ofVec3f orient(ofVec3f &point);
-	
-	vector<Skeleton>* skeletons;
+
 	vector<string> addressTokens;
 	ofxOscMessage message;
 };
