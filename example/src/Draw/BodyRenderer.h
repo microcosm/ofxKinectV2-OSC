@@ -12,13 +12,13 @@ public:
 
 	void draw();
 	void drawHands();
-	void drawHand(Hand &hand, Joint &handJoint);
+	void drawHand(Hand hand, Joint handJoint);
 
 	void drawBones();
-	void drawBone(Joint &joint1, Joint &joint2);
+	void drawBone(Joint joint1, Joint joint2);
 
 	void drawJoints();
-	void drawJoint(Joint &joint);
+	void drawJoint(Joint joint);
 
 	void drawTorso();
 	void drawRightArm();

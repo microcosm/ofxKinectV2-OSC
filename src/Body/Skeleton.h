@@ -7,8 +7,8 @@ class Skeleton {
 public:
 	void init(string bodyId);
 
-	void setHand(Hand &_hand);
-	void setJoint(Joint &_joint);
+	void setHand(Hand hand);
+	void setJoint(Joint joint);
 
 	void setThumbRight(Joint &joint);
 	void setSpineBase(Joint &joint);

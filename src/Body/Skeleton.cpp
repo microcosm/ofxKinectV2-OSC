@@ -4,7 +4,7 @@ void Skeleton::init(string bodyId) {
 	this->bodyId = bodyId;
 }
 
-void Skeleton::setHand(Hand &hand) {
+void Skeleton::setHand(Hand hand) {
 	if(hand.isLeft()) {
 		leftHand = hand;
 	} else {
@@ -12,7 +12,7 @@ void Skeleton::setHand(Hand &hand) {
 	}
 }
 
-void Skeleton::setJoint(Joint &joint) {
+void Skeleton::setJoint(Joint joint) {
 	string jointType = joint.getType();
 
 	if (jointType == "ThumbRight") {

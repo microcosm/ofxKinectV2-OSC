@@ -31,7 +31,7 @@ void BodyRenderer::drawHands() {
 	drawHand(skeleton->getRightHand(), skeleton->getHandRight());
 }
 
-void BodyRenderer::drawHand(Hand &hand, Joint &handJoint) {
+void BodyRenderer::drawHand(Hand hand, Joint handJoint) {
 	if(hand.isConfidentlyDetected()) {
 		if(hand.isOpen()) ofSetColor(ofColor::green);
 		if(hand.isClosed()) ofSetColor(ofColor::red);
@@ -86,7 +86,7 @@ void BodyRenderer::drawLeftLeg(){
     drawBone(skeleton->getAnkleLeft(), skeleton->getFootLeft());
 }
 
-void BodyRenderer::drawBone(Joint &joint1, Joint &joint2){
+void BodyRenderer::drawBone(Joint joint1, Joint joint2){
 
 	TrackingState trackingState = combinedTrackingState(joint1, joint2);
 
@@ -129,7 +129,7 @@ void BodyRenderer::drawJoints() {
 	drawJoint(skeleton->getHandTipRight());
 }
 
-void BodyRenderer::drawJoint(Joint &joint){
+void BodyRenderer::drawJoint(Joint joint){
 	ofSetColor(ofColor::lightGray);
 	ofCircle(joint.getPoint(), 10);
 }
