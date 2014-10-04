@@ -1,5 +1,5 @@
-ofxKinectV2OSC
-==============
+ofxKinectV2-OSC
+===============
 Easily get the [Kinect V2 sensor](http://www.microsoft.com/en-us/kinectforwindows/purchase/)'s realtime skeleton data into openFrameworks on a Mac.
 
 ![A Kinect V2 sensor](kinect.jpg)
@@ -14,20 +14,20 @@ Then you can just leave Windows running and get back to doing the rest of your c
 
 Instructions
 ------------
-- On your Windows machine, follow the instructions to clone and run this repo: [KinectV2OSC](https://github.com/microcosm/KinectV2OSC)
+- On your Windows machine, follow the instructions to clone and run this repo: [KinectV2-OSC](https://github.com/microcosm/KinectV2-OSC)
 - That's a little WPF app which broadcasts the Kinect's skeletal data across the network
-- On your Mac, clone and run ofxKinectV2OSC (this repo)
+- On your Mac, clone and run ofxKinectV2-OSC (this repo)
 - Once you fire up the example, you should see a skeleton that looks a bit like you!
 
 Screenshots
 -----------
 This is what you'll see on your Windows machine:
 
-![KinectV2OSC running on Windows](screenshot-win.png)
+![KinectV2-OSC running on Windows](screenshot-win.png)
 
 This is what you'll see on your Mac:
 
-![ofxKinectV2OSC running on Mac](screenshot-mac.png)
+![ofxKinectV2-OSC running on Mac](screenshot-mac.png)
 
 See the red and green hands? That's showing detection of open or closed hand states.
 
