@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxKinectV2OSC.h"
+#include "Draw/BodyRenderer.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,6 +23,8 @@ class ofApp : public ofBaseApp{
 		
 		ofxKinectV2OSC kinect;
 		Skeleton* skeleton;
-		bool drawDebug, drawJoints, drawBones, drawHands;
+		vector<Skeleton>* skeletons;
 		ofTrueTypeFont smallFont, largeFont;
+
+		BodyRenderer renderer;
 };

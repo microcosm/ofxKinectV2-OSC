@@ -1,6 +1,8 @@
 #include "ofxKinectV2OSC.h"
 
-void ofxKinectV2OSC::setup(int port) {
+void ofxKinectV2OSC::setup(int port, ofTrueTypeFont &_font) {
+	isDebugEnabled = false;
+	font = _font;
 	receiver.setup(port);
 	mapper.mapTo(&skeletons);
 }
@@ -18,19 +20,30 @@ vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
 }
 
 void ofxKinectV2OSC::drawDebug() {
-	string debug = "DEBUG\n";
+	if(isDebugEnabled) {
+		string debug = buildDebugString();
+		font.drawString(debug, 220, 40);
+	}
+}
 
+void ofxKinectV2OSC::toggleDebug() {
+	isDebugEnabled = !isDebugEnabled;
+}
+
+string ofxKinectV2OSC::buildDebugString() {
+	string debug = "DEBUG\n";
 	if(logger.size() == 0) {
 		debug.append("\nNo data received... try re-initiating the source");
 	} else {
-		for (int i = 0; i < logger.size(); i++) {
-			debug.append("\n" + logger.getLine(i));
-		}
+		debug.append(parseLogger());
 	}
-
-	font.drawString(debug, 220, 40);
+	return debug;
 }
 
-void ofxKinectV2OSC::loadFont(ofTrueTypeFont &_font) {
-	font = _font;
+string ofxKinectV2OSC::parseLogger() {
+	string parsed = "";
+	for (int i = 0; i < logger.size(); i++) {
+		parsed.append("\n" + logger.getLine(i));
+	}
+	return parsed;
 }

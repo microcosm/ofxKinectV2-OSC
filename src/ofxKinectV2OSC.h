@@ -2,17 +2,20 @@
 #include "ofMain.h"
 #include "Logger.h"
 #include "Mapper.h"
-#include "Skeleton.h"
+#include "Body/Skeleton.h"
 
 class ofxKinectV2OSC {
 public:
-	void setup(int port);
+	void setup(int port, ofTrueTypeFont &_font);
 	void update();
 	vector<Skeleton>* getSkeletons();
 	void drawDebug();
-	void loadFont(ofTrueTypeFont &_font);
+	void toggleDebug();
 
 protected:
+	string buildDebugString();
+	string parseLogger();
+
 	ofxOscReceiver receiver;
 	ofxOscMessage lastMessage;
 	string lastParsedMessage;
@@ -20,4 +23,5 @@ protected:
 	Mapper mapper;
 	vector<Skeleton> skeletons;
 	ofTrueTypeFont font;
+	bool isDebugEnabled;
 };

@@ -1,8 +1,8 @@
 #pragma once
 #include "ofMain.h"
-#include "Skeleton.h"
-#include "Joint.h"
-#include "Hand.h"
+#include "Body/Skeleton.h"
+#include "Body/Joint.h"
+#include "Body/Hand.h"
 #include "ofxOscReceiver.h"
 
 class Mapper {

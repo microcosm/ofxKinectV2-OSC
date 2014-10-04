@@ -58,14 +58,17 @@
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.cpp">
       <Filter>addons\ofxKinectV2OSC\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Skeleton.cpp">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.cpp">
+      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Joint.cpp">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.cpp">
+      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Hand.cpp">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.cpp">
+      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Draw\BodyRenderer.cpp">
+      <Filter>src\Draw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +110,12 @@
     </Filter>
     <Filter Include="addons\ofxKinectV2OSC\src">
       <UniqueIdentifier>{2065DD68-6665-A041-66D1-6C99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinectV2OSC\src\Body">
+      <UniqueIdentifier>{e6f0d5c7-9dae-4890-8444-021098b44573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Draw">
+      <UniqueIdentifier>{db62b01f-c573-486e-84fe-d059bd70688e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -182,14 +191,17 @@
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.h">
       <Filter>addons\ofxKinectV2OSC\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Skeleton.h">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.h">
+      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Joint.h">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.h">
+      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Hand.h">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.h">
+      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Draw\BodyRenderer.h">
+      <Filter>src\Draw</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

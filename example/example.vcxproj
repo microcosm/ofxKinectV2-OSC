@@ -90,8 +90,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Hand.cpp" />
-    <ClCompile Include="..\src\Joint.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.cpp" />
+    <ClCompile Include="src\Draw\BodyRenderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
@@ -111,11 +113,12 @@
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Logger.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Mapper.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Hand.h" />
-    <ClInclude Include="..\src\Joint.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.h" />
+    <ClInclude Include="src\Draw\BodyRenderer.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
@@ -140,7 +143,6 @@
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Logger.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Mapper.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Skeleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

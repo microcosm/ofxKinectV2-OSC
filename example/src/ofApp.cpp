@@ -4,32 +4,33 @@ void ofApp::setup(){
 	smallFont.loadFont("selena.otf", 16); //http://openfontlibrary.org/en/font/selena
 	largeFont.loadFont("selena.otf", 48);
 
-	kinect.setup(12345);
-	kinect.loadFont(smallFont);
-
-	drawDebug = false;
-	drawJoints = drawBones = drawHands = true;
-
 	ofSetLineWidth(8);
 	ofSetFrameRate(60);
+
+	//The Kinect here is just an OSC receiver and parser
+	//It just needs a port number and font for the debug text
+	kinect.setup(12345, smallFont);
+
+	//Here we get a pointer to the list of skeletons it has parsed
+	//from OSC
+	skeletons = kinect.getSkeletons();
+
+	//We could inspect the skeletons and draw them here in ofApp
+	//but for now let's pass the list to a default renderer class
+	renderer.setup(skeletons);
 }
 
 void ofApp::update(){
+	//Each frame check for new Kinect OSC messages
 	kinect.update();
 }
 
 void ofApp::draw(){
 
 	ofBackground(ofColor::darkGray);
-	if(drawDebug) kinect.drawDebug();
+	kinect.drawDebug();
 	
-	vector<Skeleton>* skeletons = kinect.getSkeletons();
-	for(int i = 0; i < skeletons->size(); i++) {
-		skeleton = &skeletons->at(i);
-		if(drawHands) skeleton->drawHands();
-		if(drawBones) skeleton->drawBones();
-		if(drawJoints) skeleton->drawJoints();
-	}
+	renderer.draw();
 
 	string commands = "COMMANDS\n\n";
 	commands.append("d = debug\n");
@@ -43,10 +44,10 @@ void ofApp::draw(){
 }
 
 void ofApp::keyPressed(int key){
-	if(key == 'd') drawDebug = !drawDebug;
-	if(key == 'j') drawJoints = !drawJoints;
-	if(key == 'b') drawBones = !drawBones;
-	if(key == 'h') drawHands = !drawHands;
+	if(key == 'd') kinect.toggleDebug();
+	if(key == 'j') renderer.toggleJoints();
+	if(key == 'b') renderer.toggleBones();
+	if(key == 'h') renderer.toggleHands();
 }
 
 void ofApp::keyReleased(int key){

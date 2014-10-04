@@ -4,128 +4,6 @@ void Skeleton::init(string bodyId) {
 	this->bodyId = bodyId;
 }
 
-void Skeleton::draw() {
-	drawHands();
-	drawBones();
-	drawJoints();
-}
-
-void Skeleton::drawHands() {
-	drawHand(leftHand, handLeft);
-	drawHand(rightHand, handRight);
-}
-
-void Skeleton::drawHand(Hand &hand, Joint &handJoint) {
-	if(hand.isConfidentlyDetected()) {
-		if(hand.isOpen()) ofSetColor(ofColor::green);
-		if(hand.isClosed()) ofSetColor(ofColor::red);
-		ofCircle(handJoint.getPoint(), 25);
-	}
-}
-
-void Skeleton::drawBones() {
-	drawTorso();
-    drawRightArm();
-    drawLeftArm();
-    drawRightLeg();
-    drawLeftLeg();
-}
-
-void Skeleton::drawTorso(){
-	drawBone(getHead(), getNeck());
-	drawBone(getNeck(), getSpineShoulder());
-	drawBone(getSpineShoulder(), getSpineMid());
-	drawBone(getSpineMid(), getSpineBase());
-	drawBone(getSpineShoulder(), getShoulderRight());
-	drawBone(getSpineShoulder(), getShoulderLeft());
-	drawBone(getSpineBase(), getHipRight());
-	drawBone(getSpineBase(), getHipLeft());
-}
-
-void Skeleton::drawRightArm(){
-    drawBone(getShoulderRight(), getElbowRight());
-    drawBone(getElbowRight(), getWristRight());
-    drawBone(getWristRight(), getHandRight());
-    drawBone(getHandRight(), getHandTipRight());
-    drawBone(getWristRight(), getThumbRight());
-}
-
-void Skeleton::drawLeftArm(){
-    drawBone(getShoulderLeft(), getElbowLeft());
-    drawBone(getElbowLeft(), getWristLeft());
-    drawBone(getWristLeft(), getHandLeft());
-    drawBone(getHandLeft(), getHandTipLeft());
-    drawBone(getWristLeft(), getThumbLeft());
-}
-
-void Skeleton::drawRightLeg(){
-    drawBone(getHipRight(), getKneeRight());
-    drawBone(getKneeRight(), getAnkleRight());
-    drawBone(getAnkleRight(), getFootRight());
-}
-
-void Skeleton::drawLeftLeg(){
-    drawBone(getHipLeft(), getKneeLeft());
-    drawBone(getKneeLeft(), getAnkleLeft());
-    drawBone(getAnkleLeft(), getFootLeft());
-}
-
-void Skeleton::drawBone(Joint &joint1, Joint &joint2){
-
-	TrackingState trackingState = combinedTrackingState(joint1, joint2);
-
-	if(trackingState == TRACKED) {
-		ofSetLineWidth(10);
-		ofSetColor(ofColor::white);
-	} else if(trackingState == INFERRED || trackingState == NOT_TRACKED) {
-		ofSetLineWidth(1);
-		ofSetColor(ofColor::gray);
-	}
-
-	ofLine(joint1.getPoint(), joint2.getPoint());
-}
-
-void Skeleton::drawJoints() {
-	drawJoint(getThumbRight());
-	drawJoint(getSpineBase());
-	drawJoint(getSpineMid());
-	drawJoint(getNeck());
-	drawJoint(getHead());
-	drawJoint(getShoulderLeft());
-	drawJoint(getElbowLeft());
-	drawJoint(getWristLeft());
-	drawJoint(getHandLeft());
-	drawJoint(getShoulderRight());
-	drawJoint(getElbowRight());
-	drawJoint(getWristRight());
-	drawJoint(getHandRight());
-	drawJoint(getHipLeft());
-	drawJoint(getKneeLeft());
-	drawJoint(getAnkleLeft());
-	drawJoint(getFootLeft());
-	drawJoint(getHipRight());
-	drawJoint(getKneeRight());
-	drawJoint(getAnkleRight());
-	drawJoint(getFootRight());
-	drawJoint(getSpineShoulder());
-	drawJoint(getHandTipLeft());
-	drawJoint(getThumbLeft());
-	drawJoint(getHandTipRight());
-}
-
-void Skeleton::drawJoint(Joint &joint){
-	ofSetColor(ofColor::lightGray);
-	ofCircle(joint.getPoint(), 10);
-}
-
-TrackingState Skeleton::combinedTrackingState(Joint &joint1, Joint &joint2) {
-	if (joint1.isTracked() && joint2.isTracked()) return TRACKED;
-    if (joint1.isInferred() && joint2.isTracked()) return INFERRED;
-    if (joint1.isTracked() && joint2.isInferred()) return INFERRED;
-    return NOT_TRACKED;
-}
-
-//Setters and getters
 void Skeleton::setHand(Hand &hand) {
 	if(hand.isLeft()) {
 		leftHand = hand;
@@ -288,6 +166,14 @@ void Skeleton::setThumbLeft(Joint &joint) {
 
 void Skeleton::setHandTipRight(Joint &joint) {
 	this->handTipRight = joint;
+}
+
+Hand Skeleton::getLeftHand() {
+	return this->leftHand;
+}
+
+Hand Skeleton::getRightHand() {
+	return this->rightHand;
 }
 
 string Skeleton::getBodyId() {

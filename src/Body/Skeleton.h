@@ -6,21 +6,7 @@
 class Skeleton {
 public:
 	void init(string bodyId);
-	void draw();
-	void drawHands();
-	void drawHand(Hand &hand, Joint &handJoint);
-	void drawBones();
-	void drawBone(Joint &joint1, Joint &joint2);
-	void drawJoints();
-	void drawJoint(Joint &joint);
-	void drawTorso();
-	void drawRightArm();
-	void drawLeftArm();
-	void drawRightLeg();
-	void drawLeftLeg();
-	TrackingState combinedTrackingState(Joint &joint1, Joint &joint2);
 
-	//Setters and getters
 	void setHand(Hand &_hand);
 	void setJoint(Joint &_joint);
 
@@ -51,6 +37,9 @@ public:
 	void setHandTipRight(Joint &joint);
 	
 	string getBodyId();
+	Hand getLeftHand();
+	Hand getRightHand();
+
 	Joint getThumbRight();
 	Joint getSpineBase();
 	Joint getSpineMid();
