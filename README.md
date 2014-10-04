@@ -23,7 +23,15 @@ Screenshots
 -----------
 This is what you'll see on your Windows machine:
 
-![Screenshot of KinectV2OSC in action](screenshot.png)
+![KinectV2OSC running on Windows](screenshot-win.png)
+
+This is what you'll see on your Mac:
+
+![ofxKinectV2OSC running on Mac](screenshot-mac.png)
+
+See the red and green hands? That's showing detection of open or closed hand states.
+
+And the thin lines on the legs? That's where the bones are inferred (low confidence).
 
 Project dependencies
 --------------------
