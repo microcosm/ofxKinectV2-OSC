@@ -1,6 +1,6 @@
 #pragma once
 #include "ofMain.h"
-#include "Body/Skeleton.h"
+#include "../Body/Skeleton.h"
 #include "Parser.h"
 #include "ofxOscReceiver.h"
 
