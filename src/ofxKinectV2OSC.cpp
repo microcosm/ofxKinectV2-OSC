@@ -8,15 +8,30 @@ void ofxKinectV2OSC::setup(int port, ofTrueTypeFont &_font) {
 }
 
 void ofxKinectV2OSC::update() {
-	while(receiver.hasWaitingMessages()) {
+	parseOscMessages();
+    clearStaleSkeletons();
+}
+
+vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
+	return &skeletons;
+}
+
+void ofxKinectV2OSC::parseOscMessages() {
+    while(receiver.hasWaitingMessages()) {
 		receiver.getNextMessage(&lastMessage);
 		logger.log(lastMessage);
 		mapper.map(lastMessage);
 	}
 }
 
-vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
-	return &skeletons;
+void ofxKinectV2OSC::clearStaleSkeletons() {
+    for(int i = 0; i < skeletons.size(); i++) {
+        Skeleton* skeleton = &skeletons.at(i);
+        skeleton->update();
+        if(skeleton->isStale()) {
+            skeletons.erase(skeletons.begin() + i);
+        }
+    }
 }
 
 void ofxKinectV2OSC::drawDebug() {

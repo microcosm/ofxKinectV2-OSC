@@ -1,15 +1,38 @@
 #include "Skeleton.h"
 
-void Skeleton::init(string bodyId) {
-	this->bodyId = bodyId;
+void Skeleton::init(string _bodyId) {
+	bodyId = _bodyId;
+    resetFreshness();
+}
+
+void Skeleton::update() {
+    freshness--;
+}
+
+void Skeleton::resetFreshness() {
+    freshness = MAX_FRESHNESS;
+}
+
+bool Skeleton::isStale() {
+    return freshness == 0;
 }
 
 void Skeleton::setHand(Hand hand) {
 	if(hand.isLeft()) {
-		leftHand = hand;
+		setLeftHand(hand);
 	} else {
-		rightHand = hand;
+		setRightHand(hand);
 	}
+}
+
+void Skeleton::setLeftHand(Hand &hand) {
+	leftHand = hand;
+    resetFreshness();
+}
+
+void Skeleton::setRightHand(Hand &hand) {
+	rightHand = hand;
+    resetFreshness();
 }
 
 void Skeleton::setJoint(Joint joint) {
@@ -69,213 +92,238 @@ void Skeleton::setJoint(Joint joint) {
 }
 
 void Skeleton::setThumbRight(Joint &joint) {
-	this->thumbRight = joint;
+	thumbRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setSpineBase(Joint &joint) {
-	this->spineBase = joint;
+	spineBase = joint;
+    resetFreshness();
 }
 
 void Skeleton::setSpineMid(Joint &joint) {
-	this->spineMid = joint;
+	spineMid = joint;
+    resetFreshness();
 }
 
 void Skeleton::setNeck(Joint &joint) {
-	this->neck = joint;
+	neck = joint;
+    resetFreshness();
 }
 
 void Skeleton::setHead(Joint &joint) {
-	this->head = joint;
+	head = joint;
+    resetFreshness();
 }
 
 void Skeleton::setShoulderLeft(Joint &joint) {
-	this->shoulderLeft = joint;
+	shoulderLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setElbowLeft(Joint &joint) {
-	this->elbowLeft = joint;
+	elbowLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setWristLeft(Joint &joint) {
-	this->wristLeft = joint;
+	wristLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setHandLeft(Joint &joint) {
-	this->handLeft = joint;
+	handLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setShoulderRight(Joint &joint) {
-	this->shoulderRight = joint;
+	shoulderRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setElbowRight(Joint &joint) {
-	this->elbowRight = joint;
+	elbowRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setWristRight(Joint &joint) {
-	this->wristRight = joint;
+	wristRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setHandRight(Joint &joint) {
-	this->handRight = joint;
+	handRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setHipLeft(Joint &joint) {
-	this->hipLeft = joint;
+	hipLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setKneeLeft(Joint &joint) {
-	this->kneeLeft = joint;
+	kneeLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setAnkleLeft(Joint &joint) {
-	this->ankleLeft = joint;
+	ankleLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setFootLeft(Joint &joint) {
-	this->footLeft = joint;
+	footLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setHipRight(Joint &joint) {
-	this->hipRight = joint;
+	hipRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setKneeRight(Joint &joint) {
-	this->kneeRight = joint;
+	kneeRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setAnkleRight(Joint &joint) {
-	this->ankleRight = joint;
+	ankleRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setFootRight(Joint &joint) {
-	this->footRight = joint;
+	footRight = joint;
+    resetFreshness();
 }
 
 void Skeleton::setSpineShoulder(Joint &joint) {
-	this->spineShoulder = joint;
+	spineShoulder = joint;
+    resetFreshness();
 }
 
 void Skeleton::setHandTipLeft(Joint &joint) {
-	this->handTipLeft = joint;
+	handTipLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setThumbLeft(Joint &joint) {
-	this->thumbLeft = joint;
+	thumbLeft = joint;
+    resetFreshness();
 }
 
 void Skeleton::setHandTipRight(Joint &joint) {
-	this->handTipRight = joint;
+	handTipRight = joint;
+    resetFreshness();
 }
 
 Hand Skeleton::getLeftHand() {
-	return this->leftHand;
+	return leftHand;
 }
 
 Hand Skeleton::getRightHand() {
-	return this->rightHand;
+	return rightHand;
 }
 
 string Skeleton::getBodyId() {
-	return this->bodyId;
+	return bodyId;
 }
 
 Joint Skeleton::getThumbRight() {
-	return this->thumbRight;
+	return thumbRight;
 }
 
 Joint Skeleton::getSpineBase() {
-	return this->spineBase;
+	return spineBase;
 }
 
 Joint Skeleton::getSpineMid() {
-	return this->spineMid;
+	return spineMid;
 }
 
 Joint Skeleton::getNeck() {
-	return this->neck;
+	return neck;
 }
 
 Joint Skeleton::getHead() {
-	return this->head;
+	return head;
 }
 
 Joint Skeleton::getShoulderLeft() {
-	return this->shoulderLeft;
+	return shoulderLeft;
 }
 
 Joint Skeleton::getElbowLeft() {
-	return this->elbowLeft;
+	return elbowLeft;
 }
 
 Joint Skeleton::getWristLeft() {
-	return this->wristLeft;
+	return wristLeft;
 }
 
 Joint Skeleton::getHandLeft() {
-	return this->handLeft;
+	return handLeft;
 }
 
 Joint Skeleton::getShoulderRight() {
-	return this->shoulderRight;
+	return shoulderRight;
 }
 
 Joint Skeleton::getElbowRight() {
-	return this->elbowRight;
+	return elbowRight;
 }
 
 Joint Skeleton::getWristRight() {
-	return this->wristRight;
+	return wristRight;
 }
 
 Joint Skeleton::getHandRight() {
-	return this->handRight;
+	return handRight;
 }
 
 Joint Skeleton::getHipLeft() {
-	return this->hipLeft;
+	return hipLeft;
 }
 
 Joint Skeleton::getKneeLeft() {
-	return this->kneeLeft;
+	return kneeLeft;
 }
 
 Joint Skeleton::getAnkleLeft() {
-	return this->ankleLeft;
+	return ankleLeft;
 }
 
 Joint Skeleton::getFootLeft() {
-	return this->footLeft;
+	return footLeft;
 }
 
 Joint Skeleton::getHipRight() {
-	return this->hipRight;
+	return hipRight;
 }
 
 Joint Skeleton::getKneeRight() {
-	return this->kneeRight;
+	return kneeRight;
 }
 
 Joint Skeleton::getAnkleRight() {
-	return this->ankleRight;
+	return ankleRight;
 }
 
 Joint Skeleton::getFootRight() {
-	return this->footRight;
+	return footRight;
 }
 
 Joint Skeleton::getSpineShoulder() {
-	return this->spineShoulder;
+	return spineShoulder;
 }
 
 Joint Skeleton::getHandTipLeft() {
-	return this->handTipLeft;
+	return handTipLeft;
 }
 
 Joint Skeleton::getThumbLeft() {
-	return this->thumbLeft;
+	return thumbLeft;
 }
 
 Joint Skeleton::getHandTipRight() {
-	return this->handTipRight;
+	return handTipRight;
 }

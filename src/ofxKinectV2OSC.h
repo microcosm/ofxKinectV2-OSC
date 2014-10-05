@@ -9,6 +9,8 @@ public:
 	void setup(int port, ofTrueTypeFont &_font);
 	void update();
 	vector<Skeleton>* getSkeletons();
+    void parseOscMessages();
+    void clearStaleSkeletons();
 	void drawDebug();
 	void toggleDebug();
 

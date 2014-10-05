@@ -2,14 +2,20 @@
 #include "ofMain.h"
 #include "Joint.h"
 #include "Hand.h"
+const int MAX_FRESHNESS = 12;
 
 class Skeleton {
 public:
-	void init(string bodyId);
+	void init(string _bodyId);
+    void update();
+    void resetFreshness();
+    bool isStale();
 
 	void setHand(Hand hand);
+    void setLeftHand(Hand &hand);
+    void setRightHand(Hand &hand);
+    
 	void setJoint(Joint joint);
-
 	void setThumbRight(Joint &joint);
 	void setSpineBase(Joint &joint);
 	void setSpineMid(Joint &joint);
@@ -68,6 +74,7 @@ public:
 
 protected:
 	string bodyId;
+    int freshness;
 	Hand leftHand;
 	Hand rightHand;
 	Joint thumbRight;
