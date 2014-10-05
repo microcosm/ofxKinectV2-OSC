@@ -2,7 +2,7 @@
 
 void ofxKinectV2OSC::setup(int port, ofTrueTypeFont &_font) {
 	isDebugEnabled = false;
-	font = _font;
+	setFont(_font);
 	receiver.setup(port);
 	mapper.mapTo(&skeletons);
 }
@@ -10,6 +10,13 @@ void ofxKinectV2OSC::setup(int port, ofTrueTypeFont &_font) {
 void ofxKinectV2OSC::update() {
 	parseOscMessages();
     clearStaleSkeletons();
+}
+
+void ofxKinectV2OSC::setFont(ofTrueTypeFont _font) {
+    font = _font;
+    if(!font.isLoaded()) {
+        isDebugEnabled = true;
+    }
 }
 
 vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
@@ -37,7 +44,11 @@ void ofxKinectV2OSC::clearStaleSkeletons() {
 void ofxKinectV2OSC::drawDebug() {
 	if(isDebugEnabled) {
 		string debug = buildDebugString();
-		font.drawString(debug, 220, 40);
+        if(font.isLoaded()) {
+            font.drawString(debug, 220, 40);
+        } else {
+            ofDrawBitmapString(debug, 60, 60);
+        }
 	}
 }
 
@@ -47,6 +58,10 @@ void ofxKinectV2OSC::toggleDebug() {
 
 string ofxKinectV2OSC::buildDebugString() {
 	string debug = "DEBUG\n";
+    if(!font.isLoaded()) {
+        debug.append("\nFont not loaded correctly... see ofApp() and copy the font into the bin/data directory\n");
+    }
+    
 	if(logger.size() == 0) {
 		debug.append("\nNo data received... try re-initiating the source");
 	} else {
