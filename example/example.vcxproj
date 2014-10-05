@@ -58,7 +58,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxKinectV2OSC\libs;..\..\..\addons\ofxKinectV2OSC\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxKinectV2-OSC\libs;..\..\..\addons\ofxKinectV2-OSC\src;..\..\..\addons\ofxKinectV2-OSC\src\Body;..\..\..\addons\ofxKinectV2-OSC\src\DataTransform</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxKinectV2OSC\libs;..\..\..\addons\ofxKinectV2OSC\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxKinectV2-OSC\libs;..\..\..\addons\ofxKinectV2-OSC\src;..\..\..\addons\ofxKinectV2-OSC\src\Body;..\..\..\addons\ofxKinectV2-OSC\src\DataTransform</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -90,12 +90,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Logger.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Mapper.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Parser.cpp" />
     <ClCompile Include="src\Draw\BodyRenderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -113,15 +107,15 @@
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Hand.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Joint.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Skeleton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Logger.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Logger.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Mapper.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Parser.h" />
     <ClInclude Include="src\Draw\BodyRenderer.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
@@ -144,7 +138,13 @@
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Hand.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Joint.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Skeleton.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Logger.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

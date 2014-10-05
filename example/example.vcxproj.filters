@@ -49,29 +49,29 @@
     <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
       <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.cpp">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Hand.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.cpp">
-      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Joint.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.cpp">
-      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Skeleton.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.cpp">
-      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Logger.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src</Filter>
     </ClCompile>
     <ClCompile Include="src\Draw\BodyRenderer.cpp">
       <Filter>src\Draw</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Logger.cpp">
-      <Filter>addons\ofxKinectV2OSC\src\DataTransform</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Mapper.cpp">
-      <Filter>addons\ofxKinectV2OSC\src\DataTransform</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Parser.cpp">
-      <Filter>addons\ofxKinectV2OSC\src\DataTransform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,20 +108,20 @@
     <Filter Include="addons\ofxOsc\libs\oscpack\src\osc">
       <UniqueIdentifier>{EDACB89C-9768-9551-4D41-B590}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\ofxKinectV2OSC">
-      <UniqueIdentifier>{A1E5A829-85CD-3361-CD17-A504}</UniqueIdentifier>
+    <Filter Include="addons\ofxKinectV2-OSC">
+      <UniqueIdentifier>{F0D87036-4F02-FB7C-230B-2412}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\ofxKinectV2OSC\src">
-      <UniqueIdentifier>{2065DD68-6665-A041-66D1-6C99}</UniqueIdentifier>
+    <Filter Include="addons\ofxKinectV2-OSC\src">
+      <UniqueIdentifier>{E56E661B-BEA5-681A-A22E-55C4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\ofxKinectV2OSC\src\Body">
-      <UniqueIdentifier>{e6f0d5c7-9dae-4890-8444-021098b44573}</UniqueIdentifier>
+    <Filter Include="addons\ofxKinectV2-OSC\src\Body">
+      <UniqueIdentifier>{C7AFF248-8116-11EB-C3A1-6061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxKinectV2-OSC\src\DataTransform">
+      <UniqueIdentifier>{7747AD9E-7338-37A4-6E0E-244B}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Draw">
-      <UniqueIdentifier>{db62b01f-c573-486e-84fe-d059bd70688e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxKinectV2OSC\src\DataTransform">
-      <UniqueIdentifier>{b6742d2c-9f9e-48d7-921d-9e031b2e2e1a}</UniqueIdentifier>
+      <UniqueIdentifier>{9a402248-a817-4c2c-9eac-99135f66d2cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -188,29 +188,29 @@
     <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
       <Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\ofxKinectV2OSC.h">
-      <Filter>addons\ofxKinectV2OSC\src</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Hand.h">
+      <Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Hand.h">
-      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Joint.h">
+      <Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Joint.h">
-      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Skeleton.h">
+      <Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\Body\Skeleton.h">
-      <Filter>addons\ofxKinectV2OSC\src\Body</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Logger.h">
+      <Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.h">
+      <Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.h">
+      <Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.h">
+      <Filter>addons\ofxKinectV2-OSC\src</Filter>
     </ClInclude>
     <ClInclude Include="src\Draw\BodyRenderer.h">
       <Filter>src\Draw</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Logger.h">
-      <Filter>addons\ofxKinectV2OSC\src\DataTransform</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Mapper.h">
-      <Filter>addons\ofxKinectV2OSC\src\DataTransform</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxKinectV2OSC\src\DataTransform\Parser.h">
-      <Filter>addons\ofxKinectV2OSC\src\DataTransform</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
