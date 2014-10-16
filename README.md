@@ -36,3 +36,4 @@ And the thin lines on the legs? That's where the bones are inferred (low confide
 Project dependencies
 --------------------
 - [ofxOSC](https://github.com/openframeworks/openFrameworks/tree/master/addons/ofxOsc) to recieve messages - it's part of the openFrameworks core
+- Tested against [openFrameworks 0.8.4](http://openframeworks.cc/download/)
