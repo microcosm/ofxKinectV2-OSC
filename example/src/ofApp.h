@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxKinectV2OSC.h"
-#include "Draw/BodyRenderer.h"
+#include "BodyRenderer.h"
 
 class ofApp : public ofBaseApp{
 
