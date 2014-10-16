@@ -3,6 +3,7 @@
 #include "DataTransform/Logger.h"
 #include "DataTransform/Mapper.h"
 #include "Body/Skeleton.h"
+#include "Draw/BodyRenderer.h"
 
 class ofxKinectV2OSC {
 public:

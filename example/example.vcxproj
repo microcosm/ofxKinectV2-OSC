@@ -90,7 +90,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Draw\BodyRenderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
@@ -114,9 +113,9 @@
     <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.cpp" />
     <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Draw\BodyRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Draw\BodyRenderer.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
     <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
@@ -145,6 +144,7 @@
     <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.h" />
     <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.h" />
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Draw\BodyRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

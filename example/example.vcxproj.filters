@@ -70,8 +70,8 @@
     <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.cpp">
       <Filter>addons\ofxKinectV2-OSC\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Draw\BodyRenderer.cpp">
-      <Filter>src\Draw</Filter>
+    <ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Draw\BodyRenderer.cpp">
+      <Filter>addons\ofxKinectV2-OSC\src\Draw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,8 +120,8 @@
     <Filter Include="addons\ofxKinectV2-OSC\src\DataTransform">
       <UniqueIdentifier>{7747AD9E-7338-37A4-6E0E-244B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Draw">
-      <UniqueIdentifier>{9a402248-a817-4c2c-9eac-99135f66d2cb}</UniqueIdentifier>
+    <Filter Include="addons\ofxKinectV2-OSC\src\Draw">
+      <UniqueIdentifier>{9f7117e0-ecef-4f6f-bf12-7edeb1b1fc55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -209,8 +209,8 @@
     <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.h">
       <Filter>addons\ofxKinectV2-OSC\src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Draw\BodyRenderer.h">
-      <Filter>src\Draw</Filter>
+    <ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Draw\BodyRenderer.h">
+      <Filter>addons\ofxKinectV2-OSC\src\Draw</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
