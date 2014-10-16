@@ -7,6 +7,9 @@ enum TrackingState {
 
 class Joint {
 public:
+    float x();
+    float y();
+    float z();
 	void setType(string _type);
 	void setPoint(ofVec3f _point);
 	void setTrackingState(TrackingState _trackingState);

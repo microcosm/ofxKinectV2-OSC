@@ -1,5 +1,17 @@
 #include "Joint.h"
 
+float Joint::x() {
+    return point.x;
+}
+
+float Joint::y() {
+    return point.y;
+}
+
+float Joint::z() {
+    return point.z;
+}
+
 void Joint::setType(string _type) {
 	type = _type;
 }
