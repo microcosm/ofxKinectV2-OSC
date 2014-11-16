@@ -17,6 +17,7 @@ public:
 	string getType();
 	ofVec3f getPoint();
 	TrackingState getTrackingState();
+    float distanceTo(Joint* other);
 	
 	bool isTracked();
 	bool isInferred();

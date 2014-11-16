@@ -36,6 +36,10 @@ TrackingState Joint::getTrackingState() {
 	return trackingState;
 }
 
+float Joint::distanceTo(Joint* other) {
+    return point.distance(other->getPoint());
+}
+
 bool Joint::isTracked() {
 	return trackingState == TRACKED;
 }
