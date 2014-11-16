@@ -1,21 +1,24 @@
 #include "Interpreter.h"
 
 ofRectangle Interpreter::leftHandRange(Joint* spineShoulder, Joint* leftShoulder) {
-    float estimatedSpan = leftShoulder->distanceTo(spineShoulder) * 4;
-    
-    return ofRectangle(
-        spineShoulder->x() - estimatedSpan,
-        leftShoulder->y() - estimatedSpan,
-        estimatedSpan,
-        estimatedSpan * 2);
+    ofRectangle result = handRange(spineShoulder, leftShoulder);
+    result.x = result.x - estimatedSpan.x;
+    return result;
 }
 
 ofRectangle Interpreter::rightHandRange(Joint* spineShoulder, Joint* rightShoulder) {
-    float estimatedSpan = spineShoulder->distanceTo(rightShoulder) * 4;
+    return handRange(spineShoulder, rightShoulder);
+}
+
+ofRectangle Interpreter::handRange(Joint* spineShoulder, Joint* shoulder) {
+    
+    float distance = shoulder->distanceTo(spineShoulder);
+    estimatedSpan.x = distance * 4;
+    estimatedSpan.y = distance * 6;
     
     return ofRectangle(
-        rightShoulder->x(),
-        rightShoulder->y() - estimatedSpan,
-        estimatedSpan,
-        estimatedSpan * 2);
+        shoulder->x(),
+        shoulder->y() - estimatedSpan.y * 0.5,
+        estimatedSpan.x,
+        estimatedSpan.y);
 }
