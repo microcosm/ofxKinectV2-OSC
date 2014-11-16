@@ -2,7 +2,7 @@
 
 ofRectangle Interpreter::leftHandRange(Joint* spineShoulder, Joint* leftShoulder) {
     ofRectangle result = handRange(spineShoulder, leftShoulder);
-    result.x = result.x - estimatedSpan.x;
+    result.x = leftShoulder->x() - estimatedSpan.x;
     return result;
 }
 

@@ -329,7 +329,7 @@ Joint Skeleton::getHandTipRight() {
 }
 
 ofRectangle Skeleton::getLeftHandRange() {
-    return interpreter.leftHandRange(&shoulderLeft, &spineShoulder);
+    return interpreter.leftHandRange(&spineShoulder, &shoulderLeft);
 }
 
 ofRectangle Skeleton::getRightHandRange() {
