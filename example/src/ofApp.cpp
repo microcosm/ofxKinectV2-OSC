@@ -50,8 +50,9 @@ void ofApp::draw(){
 	string commands = "COMMANDS\n\n";
 	commands.append("d = debug\n");
 	commands.append("j = joints\n");
-	commands.append("b = bones\n");
-	commands.append("h = hands\n");
+    commands.append("b = bones\n");
+    commands.append("h = hands\n");
+    commands.append("r = ranges\n");
 
 	ofSetColor(ofColor::white);
 	smallFont.drawString(commands, 20, 40);
@@ -61,8 +62,9 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
 	if(key == 'd') kinect.toggleDebug();
 	if(key == 'j') renderer.toggleJoints();
-	if(key == 'b') renderer.toggleBones();
-	if(key == 'h') renderer.toggleHands();
+    if(key == 'b') renderer.toggleBones();
+    if(key == 'h') renderer.toggleHands();
+    if(key == 'r') renderer.toggleRanges();
 }
 
 void ofApp::keyReleased(int key){
