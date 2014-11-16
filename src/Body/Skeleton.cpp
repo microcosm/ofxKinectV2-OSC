@@ -325,5 +325,13 @@ Joint Skeleton::getThumbLeft() {
 }
 
 Joint Skeleton::getHandTipRight() {
-	return handTipRight;
+    return handTipRight;
+}
+
+ofRectangle Skeleton::getLeftHandRange() {
+    return interpreter.leftHandRange(&shoulderLeft, &spineShoulder);
+}
+
+ofRectangle Skeleton::getRightHandRange() {
+    return interpreter.rightHandRange(&spineShoulder, &shoulderRight);
 }

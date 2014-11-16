@@ -2,7 +2,18 @@
 
 void BodyRenderer::setup(vector<Skeleton>* _skeletons) {
 	skeletons = _skeletons;
-	isDrawHandsEnabled = isDrawJointsEnabled = isDrawBonesEnabled = true;
+	isDrawHandsEnabled = isDrawJointsEnabled = isDrawBonesEnabled =
+        isDrawRangesEnabled = true;
+}
+
+void BodyRenderer::draw() {
+    for(int i = 0; i < skeletons->size(); i++) {
+        skeleton = &skeletons->at(i);
+        if(isDrawHandsEnabled)  drawHands();
+        if(isDrawBonesEnabled)  drawBones();
+        if(isDrawJointsEnabled) drawJoints();
+        if(isDrawRangesEnabled) drawRanges();
+    }
 }
 
 void BodyRenderer::toggleHands() {
@@ -14,16 +25,11 @@ void BodyRenderer::toggleBones() {
 }
 
 void BodyRenderer::toggleJoints() {
-	isDrawJointsEnabled = !isDrawJointsEnabled;
+    isDrawJointsEnabled = !isDrawJointsEnabled;
 }
 
-void BodyRenderer::draw() {
-	for(int i = 0; i < skeletons->size(); i++) {
-		skeleton = &skeletons->at(i);
-		if(isDrawHandsEnabled)  drawHands();
-		if(isDrawBonesEnabled)  drawBones();
-		if(isDrawJointsEnabled) drawJoints();
-	}
+void BodyRenderer::toggleRanges() {
+    isDrawRangesEnabled = !isDrawRangesEnabled;
 }
 
 void BodyRenderer::drawHands() {
@@ -33,8 +39,9 @@ void BodyRenderer::drawHands() {
 
 void BodyRenderer::drawHand(Hand hand, Joint handJoint) {
 	if(hand.isConfidentlyDetected()) {
+        ofFill();
 		if(hand.isOpen()) ofSetColor(ofColor::green);
-		if(hand.isClosed()) ofSetColor(ofColor::red);
+		else ofSetColor(ofColor::red);
 		ofCircle(handJoint.getPoint(), 25);
 	}
 }
@@ -48,14 +55,14 @@ void BodyRenderer::drawBones() {
 }
 
 void BodyRenderer::drawTorso(){
-	drawBone(skeleton->getHead(), skeleton->getNeck());
-	drawBone(skeleton->getNeck(), skeleton->getSpineShoulder());
-	drawBone(skeleton->getSpineShoulder(), skeleton->getSpineMid());
-	drawBone(skeleton->getSpineMid(), skeleton->getSpineBase());
-	drawBone(skeleton->getSpineShoulder(), skeleton->getShoulderRight());
-	drawBone(skeleton->getSpineShoulder(), skeleton->getShoulderLeft());
-	drawBone(skeleton->getSpineBase(), skeleton->getHipRight());
-	drawBone(skeleton->getSpineBase(), skeleton->getHipLeft());
+    drawBone(skeleton->getHead(), skeleton->getNeck());
+    drawBone(skeleton->getNeck(), skeleton->getSpineShoulder());
+    drawBone(skeleton->getSpineShoulder(), skeleton->getSpineMid());
+    drawBone(skeleton->getSpineMid(), skeleton->getSpineBase());
+    drawBone(skeleton->getSpineShoulder(), skeleton->getShoulderRight());
+    drawBone(skeleton->getSpineShoulder(), skeleton->getShoulderLeft());
+    drawBone(skeleton->getSpineBase(), skeleton->getHipRight());
+    drawBone(skeleton->getSpineBase(), skeleton->getHipLeft());
 }
 
 void BodyRenderer::drawRightArm(){
@@ -87,51 +94,63 @@ void BodyRenderer::drawLeftLeg(){
 }
 
 void BodyRenderer::drawBone(Joint joint1, Joint joint2){
-
-	TrackingState trackingState = combinedTrackingState(joint1, joint2);
-
-	if(trackingState == TRACKED) {
-		ofSetLineWidth(10);
-		ofSetColor(ofColor::white);
-	} else if(trackingState == INFERRED || trackingState == NOT_TRACKED) {
-		ofSetLineWidth(1);
-		ofSetColor(ofColor::gray);
-	}
-
-	ofLine(joint1.getPoint(), joint2.getPoint());
+    
+    TrackingState trackingState = combinedTrackingState(joint1, joint2);
+    
+    if(trackingState == TRACKED) {
+        ofSetLineWidth(10);
+        ofSetColor(ofColor::white);
+    } else {
+        ofSetLineWidth(1);
+        ofSetColor(ofColor::gray);
+    }
+    
+    ofLine(joint1.getPoint(), joint2.getPoint());
 }
 
 void BodyRenderer::drawJoints() {
-	drawJoint(skeleton->getThumbRight());
-	drawJoint(skeleton->getSpineBase());
-	drawJoint(skeleton->getSpineMid());
-	drawJoint(skeleton->getNeck());
-	drawJoint(skeleton->getHead());
-	drawJoint(skeleton->getShoulderLeft());
-	drawJoint(skeleton->getElbowLeft());
-	drawJoint(skeleton->getWristLeft());
-	drawJoint(skeleton->getHandLeft());
-	drawJoint(skeleton->getShoulderRight());
-	drawJoint(skeleton->getElbowRight());
-	drawJoint(skeleton->getWristRight());
-	drawJoint(skeleton->getHandRight());
-	drawJoint(skeleton->getHipLeft());
-	drawJoint(skeleton->getKneeLeft());
-	drawJoint(skeleton->getAnkleLeft());
-	drawJoint(skeleton->getFootLeft());
-	drawJoint(skeleton->getHipRight());
-	drawJoint(skeleton->getKneeRight());
-	drawJoint(skeleton->getAnkleRight());
-	drawJoint(skeleton->getFootRight());
-	drawJoint(skeleton->getSpineShoulder());
-	drawJoint(skeleton->getHandTipLeft());
-	drawJoint(skeleton->getThumbLeft());
-	drawJoint(skeleton->getHandTipRight());
+    drawJoint(skeleton->getThumbRight());
+    drawJoint(skeleton->getSpineBase());
+    drawJoint(skeleton->getSpineMid());
+    drawJoint(skeleton->getNeck());
+    drawJoint(skeleton->getHead());
+    drawJoint(skeleton->getShoulderLeft());
+    drawJoint(skeleton->getElbowLeft());
+    drawJoint(skeleton->getWristLeft());
+    drawJoint(skeleton->getHandLeft());
+    drawJoint(skeleton->getShoulderRight());
+    drawJoint(skeleton->getElbowRight());
+    drawJoint(skeleton->getWristRight());
+    drawJoint(skeleton->getHandRight());
+    drawJoint(skeleton->getHipLeft());
+    drawJoint(skeleton->getKneeLeft());
+    drawJoint(skeleton->getAnkleLeft());
+    drawJoint(skeleton->getFootLeft());
+    drawJoint(skeleton->getHipRight());
+    drawJoint(skeleton->getKneeRight());
+    drawJoint(skeleton->getAnkleRight());
+    drawJoint(skeleton->getFootRight());
+    drawJoint(skeleton->getSpineShoulder());
+    drawJoint(skeleton->getHandTipLeft());
+    drawJoint(skeleton->getThumbLeft());
+    drawJoint(skeleton->getHandTipRight());
 }
 
-void BodyRenderer::drawJoint(Joint joint){
-	ofSetColor(ofColor::lightGray);
-	ofCircle(joint.getPoint(), 10);
+void BodyRenderer::drawJoint(Joint joint) {
+    ofSetColor(ofColor::lightGray);
+    ofFill();
+    ofCircle(joint.getPoint(), 10);
+}
+
+void BodyRenderer::drawRanges() {
+    drawRange(skeleton->getLeftHandRange());
+    drawRange(skeleton->getRightHandRange());
+}
+
+void BodyRenderer::drawRange(ofRectangle range) {
+    ofSetColor(ofColor::red);
+    ofNoFill();
+    ofRect(range);
 }
 
 TrackingState BodyRenderer::combinedTrackingState(Joint &joint1, Joint &joint2) {

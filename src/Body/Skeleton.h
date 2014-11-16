@@ -1,7 +1,9 @@
 #pragma once
 #include "ofMain.h"
+#include "Interpreter.h"
 #include "Joint.h"
 #include "Hand.h"
+
 const int MAX_FRESHNESS = 12;
 
 class Skeleton {
@@ -71,10 +73,15 @@ public:
 	Joint getHandTipLeft();
 	Joint getThumbLeft();
 	Joint getHandTipRight();
+    
+    ofRectangle getLeftHandRange();
+    ofRectangle getRightHandRange();
 
 protected:
-	string bodyId;
+    string bodyId;
     int freshness;
+    Interpreter interpreter;
+    
 	Hand leftHand;
 	Hand rightHand;
 	Joint thumbRight;
