@@ -2,8 +2,8 @@
 
 void BodyRenderer::setup(vector<Skeleton>* _skeletons) {
 	skeletons = _skeletons;
-	isDrawHandsEnabled = isDrawJointsEnabled = isDrawBonesEnabled =
-        isDrawRangesEnabled = true;
+    isDrawHandsEnabled = isDrawJointsEnabled = isDrawBonesEnabled = true;
+    isDrawRangesEnabled = false;
 }
 
 void BodyRenderer::draw() {
@@ -148,7 +148,7 @@ void BodyRenderer::drawRanges() {
 }
 
 void BodyRenderer::drawRange(ofRectangle range) {
-    ofSetColor(ofColor::red);
+    ofSetColor(ofColor::purple);
     ofNoFill();
     ofRect(range);
 }
