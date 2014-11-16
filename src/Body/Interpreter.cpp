@@ -14,8 +14,8 @@ ofRectangle Interpreter::rightHandRange(Joint* spineShoulder, Joint* rightShould
     float estimatedSpan = spineShoulder->distanceTo(rightShoulder) * 4;
     
     return ofRectangle(
-        spineShoulder->x(),
-        spineShoulder->y() - estimatedSpan,
+        rightShoulder->x(),
+        rightShoulder->y() - estimatedSpan,
         estimatedSpan,
         estimatedSpan * 2);
 }
