@@ -150,6 +150,7 @@ void BodyRenderer::drawRanges() {
 void BodyRenderer::drawRange(ofRectangle range) {
     ofSetColor(ofColor::purple);
     ofNoFill();
+    ofSetLineWidth(1);
     ofRect(range);
 }
 
