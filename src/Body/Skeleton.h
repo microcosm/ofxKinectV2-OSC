@@ -76,6 +76,8 @@ public:
     
     ofRectangle getLeftHandRange();
     ofRectangle getRightHandRange();
+    ofVec2f getLeftHandNormal();
+    ofVec2f getRightHandNormal();
 
 protected:
     string bodyId;

@@ -17,7 +17,7 @@ void ofApp::setup(){
 
 	//We could inspect the skeletons and draw them here in ofApp
 	//but for now let's pass the list to a default renderer class
-	renderer.setup(skeletons);
+	renderer.setup(skeletons, largeFont);
 }
 
 void ofApp::update(){

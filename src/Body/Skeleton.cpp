@@ -335,3 +335,12 @@ ofRectangle Skeleton::getLeftHandRange() {
 ofRectangle Skeleton::getRightHandRange() {
     return interpreter.rightHandRange(&spineShoulder, &shoulderRight);
 }
+
+ofVec2f Skeleton::getLeftHandNormal() {
+    return interpreter.leftHandNormal(&handLeft, &spineShoulder, &shoulderLeft);
+}
+
+ofVec2f Skeleton::getRightHandNormal() {
+    return interpreter.rightHandNormal(&handRight, &spineShoulder, &shoulderRight);
+}
+

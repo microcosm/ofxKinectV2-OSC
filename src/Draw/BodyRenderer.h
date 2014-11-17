@@ -5,7 +5,9 @@
 class BodyRenderer {
 public:
     void setup(vector<Skeleton>* _skeletons);
+    void setup(vector<Skeleton>* _skeletons, ofTrueTypeFont _font);
     void draw();
+    void loadFont(ofTrueTypeFont _font);
 	
 	void toggleHands();
     void toggleBones();
@@ -27,7 +29,7 @@ public:
 	void drawJoint(Joint joint);
     
     void drawRanges();
-    void drawRange(ofRectangle range);
+    void drawRange(ofRectangle range, Joint hand, ofVec2f normal);
 
     
 
@@ -36,6 +38,8 @@ protected:
 
 	vector<Skeleton>* skeletons;
 	Skeleton* skeleton;
+    ofTrueTypeFont font;
+    string normalReport;
 
-	bool isDrawHandsEnabled, isDrawBonesEnabled, isDrawJointsEnabled, isDrawRangesEnabled;
+	bool isDrawHandsEnabled, isDrawBonesEnabled, isDrawJointsEnabled, isDrawRangesEnabled, isFontEnabled;
 };

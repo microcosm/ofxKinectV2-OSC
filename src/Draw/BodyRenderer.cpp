@@ -1,9 +1,14 @@
 #include "BodyRenderer.h"
 
 void BodyRenderer::setup(vector<Skeleton>* _skeletons) {
-	skeletons = _skeletons;
+    skeletons = _skeletons;
     isDrawHandsEnabled = isDrawJointsEnabled = isDrawBonesEnabled = true;
-    isDrawRangesEnabled = false;
+    isDrawRangesEnabled = isFontEnabled = false;
+}
+
+void BodyRenderer::setup(vector<Skeleton>* _skeletons, ofTrueTypeFont _font) {
+    setup(_skeletons);
+    loadFont(_font);
 }
 
 void BodyRenderer::draw() {
@@ -13,6 +18,13 @@ void BodyRenderer::draw() {
         if(isDrawBonesEnabled)  drawBones();
         if(isDrawJointsEnabled) drawJoints();
         if(isDrawRangesEnabled) drawRanges();
+    }
+}
+
+void BodyRenderer::loadFont(ofTrueTypeFont _font) {
+    font = _font;
+    if(font.isLoaded()) {
+        isFontEnabled = true;
     }
 }
 
@@ -143,15 +155,19 @@ void BodyRenderer::drawJoint(Joint joint) {
 }
 
 void BodyRenderer::drawRanges() {
-    drawRange(skeleton->getLeftHandRange());
-    drawRange(skeleton->getRightHandRange());
-}
-
-void BodyRenderer::drawRange(ofRectangle range) {
     ofSetColor(ofColor::purple);
     ofNoFill();
     ofSetLineWidth(1);
+    drawRange(skeleton->getLeftHandRange(), skeleton->getHandLeft(), skeleton->getLeftHandNormal());
+    drawRange(skeleton->getRightHandRange(), skeleton->getHandRight(), skeleton->getRightHandNormal());
+}
+
+void BodyRenderer::drawRange(ofRectangle range, Joint hand, ofVec2f normal) {
     ofRect(range);
+    if(isFontEnabled) {
+        normalReport = ofToString(normal.x) + ", " + ofToString(normal.y);
+        font.drawString(normalReport, hand.x(), hand.y() - 50);
+    }
 }
 
 TrackingState BodyRenderer::combinedTrackingState(Joint &joint1, Joint &joint2) {
