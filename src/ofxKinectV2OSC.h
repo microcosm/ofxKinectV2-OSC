@@ -11,6 +11,8 @@ public:
 	void update();
     void setFont(ofTrueTypeFont _font);
 	vector<Skeleton>* getSkeletons();
+    Skeleton* getNearestSkeleton();
+    bool hasSkeletons();
     void parseOscMessages();
     void clearStaleSkeletons();
 	void drawDebug();

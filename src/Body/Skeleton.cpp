@@ -17,6 +17,10 @@ bool Skeleton::isStale() {
     return freshness == 0;
 }
 
+bool Skeleton::isCloserThan(Skeleton* other) {
+    return spineShoulder.z() > other->getSpineShoulder().z();
+}
+
 void Skeleton::setHand(Hand hand) {
 	if(hand.isLeft()) {
 		setLeftHand(hand);

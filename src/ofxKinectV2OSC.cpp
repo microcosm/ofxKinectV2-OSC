@@ -20,7 +20,21 @@ void ofxKinectV2OSC::setFont(ofTrueTypeFont _font) {
 }
 
 vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
-	return &skeletons;
+    return &skeletons;
+}
+
+Skeleton* ofxKinectV2OSC::getNearestSkeleton() {
+    Skeleton* nearestSkeleton;
+    for(int i = 0; i < skeletons.size(); i++) {
+        if(i == 0 || skeletons.at(i).isCloserThan(&skeletons.at(i-1))) {
+            nearestSkeleton = &skeletons.at(i);
+        }
+    }
+    return nearestSkeleton;
+}
+
+bool ofxKinectV2OSC::hasSkeletons() {
+    return skeletons.size() > 0;
 }
 
 void ofxKinectV2OSC::parseOscMessages() {
@@ -55,6 +69,8 @@ void ofxKinectV2OSC::drawDebug() {
 void ofxKinectV2OSC::toggleDebug() {
 	isDebugEnabled = !isDebugEnabled;
 }
+
+
 
 string ofxKinectV2OSC::buildDebugString() {
 	string debug = "DEBUG\n";

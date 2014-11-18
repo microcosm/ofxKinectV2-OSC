@@ -12,6 +12,7 @@ public:
     void update();
     void resetFreshness();
     bool isStale();
+    bool isCloserThan(Skeleton* other);
 
 	void setHand(Hand hand);
     void setLeftHand(Hand &hand);
