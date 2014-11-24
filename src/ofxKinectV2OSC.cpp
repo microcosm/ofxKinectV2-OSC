@@ -12,6 +12,10 @@ void ofxKinectV2OSC::update() {
     clearStaleSkeletons();
 }
 
+void ofxKinectV2OSC::setSmoothing(SmoothingTechnique technique) {
+	mapper.setSmoothing(technique);
+}
+
 void ofxKinectV2OSC::setFont(ofTrueTypeFont _font) {
     font = _font;
     if(!font.isLoaded()) {

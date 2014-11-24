@@ -22,6 +22,10 @@ void Mapper::refresh() {
 	skeletons->clear();
 }
 
+void Mapper::setSmoothing(SmoothingTechnique technique) {
+	parser.setDefaultSmoothing(technique);
+}
+
 Skeleton* Mapper::getSkeleton(string id) {
 	for(int i = 0; i < skeletons->size(); i++) {
 		if(skeletons->at(i).getBodyId() == id) {

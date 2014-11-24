@@ -16,6 +16,10 @@ Hand Parser::parseHand() {
 	return hand;
 }
 
+void Parser::setDefaultSmoothing(SmoothingTechnique technique) {
+	joint.setSmoothing(technique);
+}
+
 Joint Parser::parseJoint() {
 	joint.setType(parseJointType());
 	joint.setPoint(parseJointPoint());

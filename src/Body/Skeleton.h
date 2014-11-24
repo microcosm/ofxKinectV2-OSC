@@ -14,11 +14,11 @@ public:
     bool isStale();
     bool isCloserThan(Skeleton* other);
 
-	void setHand(Hand hand);
+	void setHand(Hand& hand);
     void setLeftHand(Hand &hand);
     void setRightHand(Hand &hand);
     
-	void setJoint(Joint joint);
+	void setJoint(Joint& joint);
 	void setThumbRight(Joint &joint);
 	void setSpineBase(Joint &joint);
 	void setSpineMid(Joint &joint);

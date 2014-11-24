@@ -21,7 +21,7 @@ bool Skeleton::isCloserThan(Skeleton* other) {
     return spineShoulder.z() > other->getSpineShoulder().z();
 }
 
-void Skeleton::setHand(Hand hand) {
+void Skeleton::setHand(Hand& hand) {
 	if(hand.isLeft()) {
 		setLeftHand(hand);
 	} else {
@@ -39,7 +39,7 @@ void Skeleton::setRightHand(Hand &hand) {
     resetFreshness();
 }
 
-void Skeleton::setJoint(Joint joint) {
+void Skeleton::setJoint(Joint& joint) {
 	string jointType = joint.getType();
 
 	if (jointType == "ThumbRight") {

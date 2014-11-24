@@ -9,6 +9,7 @@ public:
 	void mapTo(vector<Skeleton>* skeletons);
 	void map(ofxOscMessage &_message);
 	void refresh();
+	void setSmoothing(SmoothingTechnique technique);
 
 protected:
 	Skeleton* getSkeleton(string id);

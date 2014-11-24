@@ -25,6 +25,10 @@ void Joint::setTrackingState(TrackingState _trackingState) {
 	trackingState = _trackingState;
 }
 
+void Joint::setSmoothing(SmoothingTechnique _smoothing) {
+	smoothing = _smoothing;
+}
+
 string Joint::getType() {
 	return type;
 }
@@ -37,10 +41,15 @@ TrackingState Joint::getTrackingState() {
 	return trackingState;
 }
 
+SmoothingTechnique Joint::getSmoothing() {
+	return smoothing;
+}
+
 void Joint::clone(Joint* other) {
 	setPoint(other->getPoint());
 	setType(other->getType());
 	setTrackingState(other->getTrackingState());
+	setSmoothing(other->getSmoothing());
 }
 
 float Joint::distanceTo(Joint* other) {

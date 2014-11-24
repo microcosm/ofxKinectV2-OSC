@@ -1,6 +1,11 @@
 #pragma once
 #include "ofMain.h"
 
+enum SmoothingTechnique {
+	NO_SMOOTHING,
+	SIMPLE_MOVING_AVERAGE
+};
+
 enum TrackingState {
 	TRACKED, NOT_TRACKED, INFERRED
 };
@@ -15,10 +20,12 @@ public:
 	void setType(string _type);
 	void setPoint(ofVec3f _point);
 	void setTrackingState(TrackingState _trackingState);
+	void setSmoothing(SmoothingTechnique _smoothing);
 
 	string getType();
 	ofVec3f getPoint();
 	TrackingState getTrackingState();
+	SmoothingTechnique getSmoothing();
 	void clone(Joint* other);
     float distanceTo(Joint* other);
 	
@@ -32,4 +39,5 @@ protected:
 	string type;
 	TrackingState trackingState;
 	deque<ofVec3f> pointHistory;
+	SmoothingTechnique smoothing;
 };
