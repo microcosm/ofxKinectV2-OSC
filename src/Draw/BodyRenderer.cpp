@@ -112,12 +112,12 @@ void BodyRenderer::drawBone(Joint joint1, Joint joint2){
     if(trackingState == TRACKED) {
         ofSetLineWidth(10);
         ofSetColor(ofColor::white);
-    } else {
+		ofLine(joint1.getPoint(), joint2.getPoint());
+    } else if(trackingState == INFERRED) {
         ofSetLineWidth(1);
         ofSetColor(ofColor::gray);
+		ofLine(joint1.getPoint(), joint2.getPoint());
     }
-    
-    ofLine(joint1.getPoint(), joint2.getPoint());
 }
 
 void BodyRenderer::drawJoints() {

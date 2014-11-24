@@ -1,15 +1,15 @@
 #include "Joint.h"
 
 float Joint::x() {
-    return point.x;
+    return currentPoint().x;
 }
 
 float Joint::y() {
-    return point.y;
+    return currentPoint().y;
 }
 
 float Joint::z() {
-    return point.z;
+    return currentPoint().z;
 }
 
 void Joint::setType(string _type) {
@@ -17,7 +17,8 @@ void Joint::setType(string _type) {
 }
 
 void Joint::setPoint(ofVec3f _point) {
-	point = _point;
+	pointHistory.push_front(_point);
+	trimHistory();
 }
 
 void Joint::setTrackingState(TrackingState _trackingState) {
@@ -29,7 +30,7 @@ string Joint::getType() {
 }
 
 ofVec3f Joint::getPoint() {
-	return point;
+	return currentPoint();
 }
 
 TrackingState Joint::getTrackingState() {
@@ -37,7 +38,7 @@ TrackingState Joint::getTrackingState() {
 }
 
 float Joint::distanceTo(Joint* other) {
-    return point.distance(other->getPoint());
+    return currentPoint().distance(other->getPoint());
 }
 
 bool Joint::isTracked() {
@@ -50,4 +51,14 @@ bool Joint::isInferred() {
 
 bool Joint::isNotTracked() {
 	return trackingState == NOT_TRACKED;
+}
+
+void Joint::trimHistory() {
+	if(pointHistory.size() > MAX_POINT_HISTORY) {
+		pointHistory.pop_back();
+	}
+}
+
+ofVec3f Joint::currentPoint() {
+	return pointHistory.at(0);
 }

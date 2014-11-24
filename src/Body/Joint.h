@@ -5,6 +5,8 @@ enum TrackingState {
 	TRACKED, NOT_TRACKED, INFERRED
 };
 
+static int MAX_POINT_HISTORY = 5;
+
 class Joint {
 public:
     float x();
@@ -24,7 +26,9 @@ public:
 	bool isNotTracked();
 
 protected:
+	void trimHistory();
+	ofVec3f currentPoint();
 	string type;
 	TrackingState trackingState;
-	ofVec3f point;
+	deque<ofVec3f> pointHistory;
 };
