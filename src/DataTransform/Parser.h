@@ -10,7 +10,6 @@ public:
 	string parseBodyId();
 	Hand parseHand();
 	Joint parseJoint();
-	void setDefaultSmoothing(SmoothingTechnique technique);
 
 	bool isBody();
 	bool isJoint();

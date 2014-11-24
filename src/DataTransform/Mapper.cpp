@@ -23,7 +23,7 @@ void Mapper::refresh() {
 }
 
 void Mapper::setSmoothing(SmoothingTechnique technique) {
-	parser.setDefaultSmoothing(technique);
+	defaultSmoothing = technique;
 }
 
 Skeleton* Mapper::getSkeleton(string id) {
@@ -38,6 +38,7 @@ Skeleton* Mapper::getSkeleton(string id) {
 Skeleton* Mapper::newSkeleton(string id) {
 	Skeleton skeleton;
 	skeleton.init(id);
+	skeleton.setSmoothing(defaultSmoothing);
 	skeletons->push_back(skeleton);
 	return &skeletons->at(skeletons->size()-1);
 }

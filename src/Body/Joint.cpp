@@ -34,6 +34,9 @@ string Joint::getType() {
 }
 
 ofVec3f Joint::getPoint() {
+	if(smoothing == SIMPLE_MOVING_AVERAGE) {
+		return simpleMovingAveragePoint();
+	}
 	return currentPoint();
 }
 
@@ -50,6 +53,13 @@ void Joint::clone(Joint* other) {
 	setType(other->getType());
 	setTrackingState(other->getTrackingState());
 	setSmoothing(other->getSmoothing());
+}
+
+void Joint::clone(Joint* other, SmoothingTechnique technique) {
+	setPoint(other->getPoint());
+	setType(other->getType());
+	setTrackingState(other->getTrackingState());
+	setSmoothing(technique);
 }
 
 float Joint::distanceTo(Joint* other) {
@@ -76,4 +86,12 @@ void Joint::trimHistory() {
 
 ofVec3f Joint::currentPoint() {
 	return pointHistory.at(0);
+}
+
+ofVec3f Joint::simpleMovingAveragePoint() {
+	calcPoint = ofVec3f(0, 0, 0);
+	for(int i = 0; i < pointHistory.size(); i++) {
+		calcPoint += pointHistory.at(i);
+	}
+	return calcPoint / pointHistory.size();
 }

@@ -10,7 +10,7 @@ enum TrackingState {
 	TRACKED, NOT_TRACKED, INFERRED
 };
 
-static int MAX_POINT_HISTORY = 5;
+static int MAX_POINT_HISTORY = 3;
 
 class Joint {
 public:
@@ -27,6 +27,7 @@ public:
 	TrackingState getTrackingState();
 	SmoothingTechnique getSmoothing();
 	void clone(Joint* other);
+	void clone(Joint* other, SmoothingTechnique technique);
     float distanceTo(Joint* other);
 	
 	bool isTracked();
@@ -36,8 +37,10 @@ public:
 protected:
 	void trimHistory();
 	ofVec3f currentPoint();
+	ofVec3f simpleMovingAveragePoint();
 	string type;
 	TrackingState trackingState;
 	deque<ofVec3f> pointHistory;
+	ofVec3f calcPoint;
 	SmoothingTechnique smoothing;
 };

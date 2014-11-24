@@ -17,4 +17,5 @@ protected:
 	
 	vector<Skeleton>* skeletons;
 	Parser parser;
+	SmoothingTechnique defaultSmoothing;
 };

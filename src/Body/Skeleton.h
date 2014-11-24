@@ -9,6 +9,7 @@ const int MAX_FRESHNESS = 12;
 class Skeleton {
 public:
 	void init(string _bodyId);
+	void setSmoothing(SmoothingTechnique technique);
     void update();
     void resetFreshness();
     bool isStale();
@@ -84,6 +85,7 @@ protected:
     string bodyId;
     int freshness;
     Interpreter interpreter;
+	SmoothingTechnique smoothing;
     
 	Hand leftHand;
 	Hand rightHand;
