@@ -37,6 +37,12 @@ TrackingState Joint::getTrackingState() {
 	return trackingState;
 }
 
+void Joint::clone(Joint* other) {
+	setPoint(other->getPoint());
+	setType(other->getType());
+	setTrackingState(other->getTrackingState());
+}
+
 float Joint::distanceTo(Joint* other) {
     return currentPoint().distance(other->getPoint());
 }

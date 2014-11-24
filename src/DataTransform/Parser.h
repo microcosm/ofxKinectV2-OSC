@@ -27,6 +27,9 @@ protected:
 	void tokenize(string address);
 	ofVec3f orient(ofVec3f &point);
 
+	Hand hand;
+	Joint joint;
+
 	vector<string> addressTokens;
 	ofxOscMessage message;
 };

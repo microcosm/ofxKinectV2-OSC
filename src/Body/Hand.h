@@ -18,6 +18,10 @@ public:
 	void setState(HandState _state);
 	void setConfidence(HandConfidence _confidence);
 	void setPosition(HandPosition _position);
+	HandState getState();
+	HandConfidence getConfidence();
+	HandPosition getPosition();
+	void clone(Hand* hand);
 
 	bool isClosed();
 	bool isOpen();

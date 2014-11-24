@@ -10,7 +10,6 @@ string Parser::parseBodyId() {
 }
 
 Hand Parser::parseHand() {
-	Hand hand;
 	hand.setState(parseHandState());
 	hand.setConfidence(parseHandConfidence());
 	hand.setPosition(parseHandPosition());
@@ -18,7 +17,6 @@ Hand Parser::parseHand() {
 }
 
 Joint Parser::parseJoint() {
-	Joint joint;
 	joint.setType(parseJointType());
 	joint.setPoint(parseJointPoint());
 	joint.setTrackingState(parseJointTrackingState());

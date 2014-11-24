@@ -149,9 +149,11 @@ void BodyRenderer::drawJoints() {
 }
 
 void BodyRenderer::drawJoint(Joint joint) {
-    ofSetColor(ofColor::lightGray);
-    ofFill();
-    ofCircle(joint.getPoint(), 10);
+	if(joint.getTrackingState() == TRACKED || joint.getTrackingState() == INFERRED) {
+		ofSetColor(ofColor::lightGray);
+		ofFill();
+		ofCircle(joint.getPoint(), 10);
+	}
 }
 
 void BodyRenderer::drawRanges() {

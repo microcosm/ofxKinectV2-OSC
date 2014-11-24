@@ -30,12 +30,12 @@ void Skeleton::setHand(Hand hand) {
 }
 
 void Skeleton::setLeftHand(Hand &hand) {
-	leftHand = hand;
+	leftHand.clone(&hand);
     resetFreshness();
 }
 
 void Skeleton::setRightHand(Hand &hand) {
-	rightHand = hand;
+	rightHand.clone(&hand);
     resetFreshness();
 }
 
@@ -96,127 +96,127 @@ void Skeleton::setJoint(Joint joint) {
 }
 
 void Skeleton::setThumbRight(Joint &joint) {
-	thumbRight = joint;
+	thumbRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setSpineBase(Joint &joint) {
-	spineBase = joint;
+	spineBase.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setSpineMid(Joint &joint) {
-	spineMid = joint;
+	spineMid.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setNeck(Joint &joint) {
-	neck = joint;
+	neck.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setHead(Joint &joint) {
-	head = joint;
+	head.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setShoulderLeft(Joint &joint) {
-	shoulderLeft = joint;
+	shoulderLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setElbowLeft(Joint &joint) {
-	elbowLeft = joint;
+	elbowLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setWristLeft(Joint &joint) {
-	wristLeft = joint;
+	wristLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setHandLeft(Joint &joint) {
-	handLeft = joint;
+	handLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setShoulderRight(Joint &joint) {
-	shoulderRight = joint;
+	shoulderRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setElbowRight(Joint &joint) {
-	elbowRight = joint;
+	elbowRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setWristRight(Joint &joint) {
-	wristRight = joint;
+	wristRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setHandRight(Joint &joint) {
-	handRight = joint;
+	handRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setHipLeft(Joint &joint) {
-	hipLeft = joint;
+	hipLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setKneeLeft(Joint &joint) {
-	kneeLeft = joint;
+	kneeLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setAnkleLeft(Joint &joint) {
-	ankleLeft = joint;
+	ankleLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setFootLeft(Joint &joint) {
-	footLeft = joint;
+	footLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setHipRight(Joint &joint) {
-	hipRight = joint;
+	hipRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setKneeRight(Joint &joint) {
-	kneeRight = joint;
+	kneeRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setAnkleRight(Joint &joint) {
-	ankleRight = joint;
+	ankleRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setFootRight(Joint &joint) {
-	footRight = joint;
+	footRight.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setSpineShoulder(Joint &joint) {
-	spineShoulder = joint;
+	spineShoulder.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setHandTipLeft(Joint &joint) {
-	handTipLeft = joint;
+	handTipLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setThumbLeft(Joint &joint) {
-	thumbLeft = joint;
+	thumbLeft.clone(&joint);
     resetFreshness();
 }
 
 void Skeleton::setHandTipRight(Joint &joint) {
-	handTipRight = joint;
+	handTipRight.clone(&joint);
     resetFreshness();
 }
 

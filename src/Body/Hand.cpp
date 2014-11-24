@@ -12,6 +12,24 @@ void Hand::setPosition(HandPosition _position) {
 	position = _position;
 }
 
+HandState Hand::getState() {
+	return state;
+}
+
+HandConfidence Hand::getConfidence() {
+	return confidence;
+}
+
+HandPosition Hand::getPosition() {
+	return position;
+}
+
+void Hand::clone(Hand* hand) {
+	setState(hand->getState());
+	setConfidence(hand->getConfidence());
+	setPosition(hand->getPosition());
+}
+
 bool Hand::isOpen() {
 	return state == OPEN;
 }

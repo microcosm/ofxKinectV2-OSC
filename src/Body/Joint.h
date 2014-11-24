@@ -19,6 +19,7 @@ public:
 	string getType();
 	ofVec3f getPoint();
 	TrackingState getTrackingState();
+	void clone(Joint* other);
     float distanceTo(Joint* other);
 	
 	bool isTracked();
