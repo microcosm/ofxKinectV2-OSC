@@ -15,36 +15,8 @@ public:
     bool isStale();
     bool isCloserThan(Skeleton* other);
 
-	void setHand(Hand& hand);
-    void setLeftHand(Hand &hand);
-    void setRightHand(Hand &hand);
-    
-	void setJoint(Joint& joint);
-	void setThumbRight(Joint &joint);
-	void setSpineBase(Joint &joint);
-	void setSpineMid(Joint &joint);
-	void setNeck(Joint &joint);
-	void setHead(Joint &joint);
-	void setShoulderLeft(Joint &joint);
-	void setElbowLeft(Joint &joint);
-	void setWristLeft(Joint &joint);
-	void setHandLeft(Joint &joint);
-	void setShoulderRight(Joint &joint);
-	void setElbowRight(Joint &joint);
-	void setWristRight(Joint &joint);
-	void setHandRight(Joint &joint);
-	void setHipLeft(Joint &joint);
-	void setKneeLeft(Joint &joint);
-	void setAnkleLeft(Joint &joint);
-	void setFootLeft(Joint &joint);
-	void setHipRight(Joint &joint);
-	void setKneeRight(Joint &joint);
-	void setAnkleRight(Joint &joint);
-	void setFootRight(Joint &joint);
-	void setSpineShoulder(Joint &joint);
-	void setHandTipLeft(Joint &joint);
-	void setThumbLeft(Joint &joint);
-	void setHandTipRight(Joint &joint);
+	void setHand(Hand hand);
+	void setJoint(Joint joint);
 	
 	string getBodyId();
 	Hand getLeftHand();
@@ -82,6 +54,34 @@ public:
     ofVec2f getRightHandNormal();
 
 protected:
+    void setLeftHand(Hand &hand);
+    void setRightHand(Hand &hand);
+    void setThumbRight(Joint &joint);
+    void setSpineBase(Joint &joint);
+    void setSpineMid(Joint &joint);
+    void setNeck(Joint &joint);
+    void setHead(Joint &joint);
+    void setShoulderLeft(Joint &joint);
+    void setElbowLeft(Joint &joint);
+    void setWristLeft(Joint &joint);
+    void setHandLeft(Joint &joint);
+    void setShoulderRight(Joint &joint);
+    void setElbowRight(Joint &joint);
+    void setWristRight(Joint &joint);
+    void setHandRight(Joint &joint);
+    void setHipLeft(Joint &joint);
+    void setKneeLeft(Joint &joint);
+    void setAnkleLeft(Joint &joint);
+    void setFootLeft(Joint &joint);
+    void setHipRight(Joint &joint);
+    void setKneeRight(Joint &joint);
+    void setAnkleRight(Joint &joint);
+    void setFootRight(Joint &joint);
+    void setSpineShoulder(Joint &joint);
+    void setHandTipLeft(Joint &joint);
+    void setThumbLeft(Joint &joint);
+    void setHandTipRight(Joint &joint);
+    
     string bodyId;
     int freshness;
     Interpreter interpreter;
