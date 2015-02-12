@@ -30,7 +30,7 @@ vector<Skeleton>* ofxKinectV2OSC::getSkeletons() {
 Skeleton* ofxKinectV2OSC::getNearestSkeleton() {
     Skeleton* nearestSkeleton;
     for(int i = 0; i < skeletons.size(); i++) {
-        if(i == 0 || skeletons.at(i).isCloserThan(&skeletons.at(i-1))) {
+        if(i == 0 || skeletons.at(i).isCloserThan(nearestSkeleton)) {
             nearestSkeleton = &skeletons.at(i);
         }
     }
