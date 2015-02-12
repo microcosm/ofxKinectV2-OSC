@@ -14,8 +14,9 @@ Then you can just leave Windows running and get back to doing the rest of your c
 
 Instructions
 ------------
-- On your Windows machine, follow the instructions to clone and run this repo: [KinectV2-OSC](https://github.com/microcosm/KinectV2-OSC)
-- That's a little WPF app which broadcasts the Kinect's skeletal data across the network
+- On your Windows machine, download and run [KinectV2-OSC.exe](https://github.com/microcosm/KinectV2-OSC/releases/download/v0.1.0/KinectV2-OSC.zip) (based on [this repo](https://github.com/microcosm/KinectV2-OSC))
+- Edit the file `ip.txt` to specify the IP addresses you want to broadcast to (or ignore this step if you are broadcasting back to the same machine on `127.0.0.1` which is the default)
+- This little WPF app broadcasts the Kinect's skeletal data across the network
 - On your Mac, clone and run ofxKinectV2-OSC (this repo)
 - Once you fire up the example, you should see a skeleton that looks a bit like you!
 
