@@ -7,7 +7,8 @@
 
 class ofxKinectV2OSC {
 public:
-	void setup(int port, ofTrueTypeFont &_font);
+    void setup(int port, ofTrueTypeFont &_font);
+    void setup(int port);
 	void update();
 	void setSmoothing(SmoothingTechnique technique);
     void setFont(ofTrueTypeFont _font);

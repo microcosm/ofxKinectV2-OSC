@@ -1,10 +1,14 @@
 #include "ofxKinectV2OSC.h"
 
 void ofxKinectV2OSC::setup(int port, ofTrueTypeFont &_font) {
-	isDebugEnabled = false;
-	setFont(_font);
-	receiver.setup(port);
-	mapper.mapTo(&skeletons);
+    setFont(_font);
+    setup(port);
+}
+
+void ofxKinectV2OSC::setup(int port) {
+    isDebugEnabled = false;
+    receiver.setup(port);
+    mapper.mapTo(&skeletons);
 }
 
 void ofxKinectV2OSC::update() {
