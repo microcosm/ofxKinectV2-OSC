@@ -12,6 +12,7 @@ void BodyRenderer::setup(vector<Skeleton>* _skeletons, ofTrueTypeFont _font) {
 }
 
 void BodyRenderer::draw() {
+    ofSetLineWidth(8);
     for(int i = 0; i < skeletons->size(); i++) {
         skeleton = &skeletons->at(i);
         if(isDrawHandsEnabled)  drawHands();

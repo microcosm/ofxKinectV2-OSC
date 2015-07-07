@@ -4,9 +4,6 @@ void ofApp::setup(){
 	smallFont.loadFont("selena.otf", 16); //http://openfontlibrary.org/en/font/selena
 	largeFont.loadFont("selena.otf", 48);
 
-	ofSetLineWidth(8);
-	ofSetFrameRate(60);
-
 	//The Kinect here is just an OSC receiver and parser
 	//It just needs a port number and font for the debug text
 	kinect.setup(12345, smallFont);
@@ -38,13 +35,13 @@ void ofApp::draw(){
     
     //If you want to stop using the default renderer and start
     //drawing your own graphics, uncomment this for a starting point:
-    /*for(int i = 0; i < skeletons->size(); i++) {
+    for(int i = 0; i < skeletons->size(); i++) {
         ofSetColor(ofColor::fromHsb(ofGetFrameNum() % 255, 255, 255));
         Joint handLeft = skeletons->at(i).getHandLeft();
         ofCircle(handLeft.x(), handLeft.y(), 60);
         Joint handRight = skeletons->at(i).getHandRight();
         ofCircle(handRight.x(), handRight.y(), 60);
-    }*/
+    }
 
     //Print out commands and text
 	string commands = "COMMANDS\n\n";
