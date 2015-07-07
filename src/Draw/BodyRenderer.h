@@ -13,6 +13,8 @@ public:
     void toggleBones();
     void toggleJoints();
     void toggleRanges();
+    void hideAll();
+    void showAll();
     
 	void drawHands();
 	virtual void drawHand(Hand hand, Joint handJoint);

@@ -45,6 +45,20 @@ void BodyRenderer::toggleRanges() {
     isDrawRangesEnabled = !isDrawRangesEnabled;
 }
 
+void BodyRenderer::hideAll() {
+    isDrawHandsEnabled = false;
+    isDrawBonesEnabled = false;
+    isDrawJointsEnabled = false;
+    isDrawRangesEnabled = false;
+}
+
+void BodyRenderer::showAll() {
+    isDrawHandsEnabled = true;
+    isDrawBonesEnabled = true;
+    isDrawJointsEnabled = true;
+    isDrawRangesEnabled = true;
+}
+
 void BodyRenderer::drawHands() {
 	drawHand(skeleton->getLeftHand(), skeleton->getHandLeft());
 	drawHand(skeleton->getRightHand(), skeleton->getHandRight());
