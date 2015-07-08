@@ -50,8 +50,8 @@ public:
     
     ofRectangle getLeftHandRange();
     ofRectangle getRightHandRange();
-    ofVec2f getLeftHandNormal();
-    ofVec2f getRightHandNormal();
+    ofVec3f getLeftHandNormal();
+    ofVec3f getRightHandNormal();
 
 protected:
     void setLeftHand(Hand &hand);

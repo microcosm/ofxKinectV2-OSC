@@ -1,5 +1,7 @@
 #include "Interpreter.h"
 
+const float RANGE_Z = 5.6;
+
 ofRectangle Interpreter::leftHandRange(Joint* spineShoulder, Joint* leftShoulder) {
     ofRectangle result = handRange(spineShoulder, leftShoulder);
     result.x -= estimatedSpan.x;
@@ -10,14 +12,14 @@ ofRectangle Interpreter::rightHandRange(Joint* spineShoulder, Joint* rightShould
     return handRange(spineShoulder, rightShoulder);
 }
 
-ofVec2f Interpreter::leftHandNormal(Joint* leftHand, Joint* spineShoulder, Joint* leftShoulder) {
+ofVec3f Interpreter::leftHandNormal(Joint* leftHand, Joint* spineShoulder, Joint* leftShoulder) {
     ofRectangle range = leftHandRange(spineShoulder, leftShoulder);
-    return normalise(leftHand, range);
+    return normalise(leftHand, range, spineShoulder->z());
 }
 
-ofVec2f Interpreter::rightHandNormal(Joint* rightHand, Joint* spineShoulder, Joint* rightShoulder) {
+ofVec3f Interpreter::rightHandNormal(Joint* rightHand, Joint* spineShoulder, Joint* rightShoulder) {
     ofRectangle range = rightHandRange(spineShoulder, rightShoulder);
-    return normalise(rightHand, range);
+    return normalise(rightHand, range, spineShoulder->z());
 }
 
 ofRectangle Interpreter::handRange(Joint* spineShoulder, Joint* shoulder) {
@@ -32,9 +34,10 @@ ofRectangle Interpreter::handRange(Joint* spineShoulder, Joint* shoulder) {
         estimatedSpan.y);
 }
 
-ofVec2f Interpreter::normalise(Joint *joint, ofRectangle range) {
-    ofVec2f normal;
+ofVec3f Interpreter::normalise(Joint *joint, ofRectangle range, float torsoDistance) {
+    ofVec3f normal;
     normal.x = ofMap(joint->x(), range.x, range.x + range.width, 0, 1, true);
     normal.y = ofMap(joint->y(), range.y, range.y + range.height, 0, 1, true);
+    normal.z = ofMap(joint->z(), torsoDistance, torsoDistance + RANGE_Z, 0, 1, true);
     return normal;
 }
