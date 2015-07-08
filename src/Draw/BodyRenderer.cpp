@@ -12,6 +12,7 @@ void BodyRenderer::setup(vector<Skeleton>* _skeletons, ofTrueTypeFont _font) {
 }
 
 void BodyRenderer::draw() {
+    ofPushStyle();
     ofSetLineWidth(8);
     for(int i = 0; i < skeletons->size(); i++) {
         skeleton = &skeletons->at(i);
@@ -20,6 +21,7 @@ void BodyRenderer::draw() {
         if(isDrawJointsEnabled) drawJoints();
         if(isDrawRangesEnabled) drawRanges();
     }
+    ofPopStyle();
 }
 
 void BodyRenderer::loadFont(ofTrueTypeFont _font) {
