@@ -85,7 +85,12 @@ void Joint::trimHistory() {
 }
 
 ofVec3f Joint::currentPoint() {
-	return pointHistory.at(0);
+    if(pointHistory.size() > 0) {
+        return pointHistory.at(0);
+    } else {
+        cout << "Joint point history is empty. Returning zeros." << endl;
+        return ofVec3f(0, 0, 0);
+    }
 }
 
 ofVec3f Joint::simpleMovingAveragePoint() {
