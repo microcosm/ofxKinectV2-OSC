@@ -10,6 +10,6 @@ public:
     ofVec3f rightHandNormal(Joint* rightHand, Joint* spineShoulder, Joint* rightShoulder);
 protected:
     ofRectangle handRange(Joint* spineShoulder, Joint* shoulder);
-    ofVec3f normalise(Joint* joint, ofRectangle range, float torsoDistance);
+    ofVec3f normalise(Joint* joint, ofRectangle range, float torsoDistance, bool reverseX=false);
     ofVec2f estimatedSpan;
 };
