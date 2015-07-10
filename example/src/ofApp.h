@@ -25,9 +25,5 @@ class ofApp : public ofBaseApp{
 		Skeleton* skeleton;
 		vector<Skeleton>* skeletons;
 		ofTrueTypeFont smallFont, largeFont;
-
 		BodyRenderer renderer;
-    
-    ofxOscSender send;
-    bool hands = false;
 };

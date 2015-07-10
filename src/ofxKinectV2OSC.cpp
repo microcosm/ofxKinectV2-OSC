@@ -111,8 +111,6 @@ void ofxKinectV2OSC::toggleDebug() {
 	isDebugEnabled = !isDebugEnabled;
 }
 
-
-
 string ofxKinectV2OSC::buildDebugString() {
 	string debug = "DEBUG\n";
     if(!font.isLoaded()) {
@@ -133,4 +131,71 @@ string ofxKinectV2OSC::parseLogger() {
 		parsed.append("\n" + logger.getLine(i));
 	}
 	return parsed;
+}
+
+void ofxKinectV2OSC::beginRecord(string filename) {
+    file = new ofFile(filename, ofFile::WriteOnly);
+    recording = true;
+}
+
+void ofxKinectV2OSC::endRecording() {
+    file->close();
+    recording = false;
+}
+
+void ofxKinectV2OSC::setReceiveFromKinect() {
+    isRecorded = false;
+}
+
+void ofxKinectV2OSC::setReceiveFromFile(string filename) {
+    isRecorded = true;
+    buffer = ofBufferFromFile(filename); // reading into the buffer
+    currentLine = buffer.getNextLine();
+}
+
+void ofxKinectV2OSC::readNextLineFromFile()
+{
+    frame = ofToInt(ofSplitString(currentLine, ",")[0]);
+    processLine();
+    bool isDone = false;
+    while (!isDone)
+    {
+        currentLine = buffer.getNextLine();
+        int nextFrame = ofToInt(ofSplitString(currentLine, ",")[0]);
+        if (nextFrame != frame || buffer.isLastLine()) {
+            isDone = true;
+        }
+        else {
+            processLine();
+        }
+    }
+}
+
+void ofxKinectV2OSC::processLine()
+{
+    vector<string> line = ofSplitString(currentLine, ",");
+    if (line.size() < 2)
+    {
+        buffer.getFirstLine();
+        return;
+    }
+    
+    // send fake osc message
+    ofxOscMessage newMsg;
+    newMsg.setAddress(ofToString(line[1]));
+    for (int i=2; i<line.size(); i+=2)
+    {
+        string type = line[i];
+        if (type =="i"){
+            newMsg.addIntArg(ofToInt(line[i+1]));
+        }
+        else if (type == "f") {
+            newMsg.addFloatArg(ofToFloat(line[i+1]));
+        }
+        else if (type == "s") {
+            newMsg.addStringArg(ofToString(line[i+1]));
+        }
+    }    
+    logger.log(newMsg);
+    mapper.map(newMsg);
 }

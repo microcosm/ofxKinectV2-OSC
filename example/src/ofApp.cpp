@@ -15,8 +15,12 @@ void ofApp::setup(){
 	//We could inspect the skeletons and draw them here in ofApp
 	//but for now let's pass the list to a default renderer class
 	renderer.setup(skeletons, largeFont);
-    
-    send.setup("192.168.1.68", 12347);
+
+    // if you want to receive offline kinect recordings
+    //kinect.setReceiveFromFile("gestures1.txt");
+
+    // or you can record skeletons into a new file
+    //kinect.beginRecord("newRecording.txt");    
 }
 
 void ofApp::update(){
@@ -56,40 +60,6 @@ void ofApp::draw(){
 	ofSetColor(ofColor::white);
 	smallFont.drawString(commands, 20, 40);
 	largeFont.drawString("fps:\n" + ofToString(ofGetFrameRate()), 20, ofGetHeight() - 100);
-    
-    if (kinect.hasSkeletons()) {
-        //cout << kinect.getNearestSkeleton()->getHandRight().y() <<endl;
-        
-        ofxOscMessage msg;
-        msg.setAddress("/rhand");
-        msg.addFloatArg(kinect.getNearestSkeleton()->getHandRight().y());
-        msg.addFloatArg(kinect.getNearestSkeleton()->getHandLeft().y());
-        msg.addFloatArg(kinect.getNearestSkeleton()->getHipLeft().z());
-
-        float thresh = ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 200);
-        float ddd = ofDist(kinect.getNearestSkeleton()->getHandRight().x(),
-                           kinect.getNearestSkeleton()->getHandRight().y(),
-                           kinect.getNearestSkeleton()->getHandLeft().x(),
-                           kinect.getNearestSkeleton()->getHandLeft().y());
-        largeFont.drawString(ofToString(ddd) + " -- " +ofToString(thresh), 400, 400);
-        if (ddd < thresh) {
-            
-            if (!hands)
-            {
-                msg.addIntArg(1);
-                cout << "CLAP!"<<endl;
-                hands = true;
-            }
-            else {
-                msg.addIntArg(0);
-            }
-        }
-        else {
-            hands = false;
-            msg.addIntArg(0);
-        }
-        send.sendMessage(msg);
-    }
 }
 
 void ofApp::keyPressed(int key){
