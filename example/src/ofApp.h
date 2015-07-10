@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxKinectV2OSC.h"
+#include "ofxOsc.h"
 
 class ofApp : public ofBaseApp{
 
@@ -26,4 +27,7 @@ class ofApp : public ofBaseApp{
 		ofTrueTypeFont smallFont, largeFont;
 
 		BodyRenderer renderer;
+    
+    ofxOscSender send;
+    bool hands = false;
 };

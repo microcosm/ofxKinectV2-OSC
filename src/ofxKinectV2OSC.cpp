@@ -3,6 +3,7 @@
 void ofxKinectV2OSC::setup(int port, ofTrueTypeFont &_font) {
     setFont(_font);
     setup(port);
+    isRecorded = false;
 }
 
 void ofxKinectV2OSC::setup(int port) {
@@ -12,7 +13,12 @@ void ofxKinectV2OSC::setup(int port) {
 }
 
 void ofxKinectV2OSC::update() {
-	parseOscMessages();
+    if (isRecorded) {
+        readNextLineFromFile();
+    }
+    else {
+        parseOscMessages();
+    }
     clearStaleSkeletons();
 }
 
@@ -48,6 +54,33 @@ bool ofxKinectV2OSC::hasSkeletons() {
 void ofxKinectV2OSC::parseOscMessages() {
     while(receiver.hasWaitingMessages()) {
 		receiver.getNextMessage(&lastMessage);
+        
+        if (recording) {
+            string nextLine;
+            nextLine = ofToString(ofGetFrameNum())+","+lastMessage.getAddress()+",";
+            
+            for (int i = 0; i < lastMessage.getNumArgs(); i++)
+            {
+                if      (lastMessage.getArgType(i) == OFXOSC_TYPE_INT32) {
+                    nextLine += "i,"+ofToString(lastMessage.getArgAsInt32(i))+",";
+                }
+                else if (lastMessage.getArgType(i) == OFXOSC_TYPE_INT64) {
+                    nextLine += "i,"+ofToString(lastMessage.getArgAsInt64(i))+",";
+                }
+                else if (lastMessage.getArgType(i) == OFXOSC_TYPE_FLOAT) {
+                    nextLine += "f,"+ofToString(lastMessage.getArgAsFloat(i))+",";
+                }
+                else if (lastMessage.getArgType(i) == OFXOSC_TYPE_STRING) {
+                    nextLine += "s,"+ofToString(lastMessage.getArgAsString(i))+",";
+                }
+                else if (lastMessage.getArgType(i) == OFXOSC_TYPE_BLOB) {
+                    nextLine += "b,"+ofToString(lastMessage.getArgAsBlob(i))+",";
+                }
+            }
+
+            *file << nextLine.substr(0, nextLine.length()-1) + "\n";
+        }
+        
 		logger.log(lastMessage);
 		mapper.map(lastMessage);
 	}

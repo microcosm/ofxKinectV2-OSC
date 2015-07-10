@@ -14,9 +14,13 @@ static int MAX_POINT_HISTORY = 3;
 
 class Joint {
 public:
+    Joint();
     float x();
     float y();
     float z();
+    ofParameter<float> * getPositionX();
+    ofParameter<float> * getPositionY();
+    ofParameter<float> * getPositionZ();
 	void setType(string _type);
 	void setPoint(ofVec3f _point);
 	void setTrackingState(TrackingState _trackingState);
@@ -36,6 +40,7 @@ public:
 
 protected:
 	void trimHistory();
+    ofParameter<float> positionX, positionY, positionZ;
 	ofVec3f currentPoint();
 	ofVec3f simpleMovingAveragePoint();
 	string type;
