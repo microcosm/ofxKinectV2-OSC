@@ -5,6 +5,7 @@
 
 class Parser {
 public:
+    Parser();
 	void setMessage(ofxOscMessage messageToParse);
 
 	string parseBodyId();
@@ -29,6 +30,8 @@ protected:
 
 	Hand hand;
 	Joint joint;
+    
+    int width, height;
 
 	vector<string> addressTokens;
 	ofxOscMessage message;

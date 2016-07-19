@@ -1,5 +1,11 @@
 #include "Parser.h"
 
+Parser::Parser(){
+    width = ofGetWidth();
+    height = ofGetHeight();
+}
+
+
 void Parser::setMessage(ofxOscMessage messageToParse) {
 	message = messageToParse;
 	tokenize(message.getAddress());
@@ -85,8 +91,8 @@ void Parser::tokenize(string address) {
 }
 
 ofVec3f Parser::orient(ofVec3f &point){
-	point.x = ofMap(point.x, -1, 1, 0, ofGetWidth());
-	point.y = ofMap(point.y, -1, 1, ofGetHeight(), 0);
+	point.x = ofMap(point.x, -1, 1, 0, width);
+	point.y = ofMap(point.y, -1, 1, height, 0);
 	point.z = ofMap(point.z, 0, 2, 30, 10);
 	return point;
 }
