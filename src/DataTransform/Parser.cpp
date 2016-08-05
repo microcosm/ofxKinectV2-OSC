@@ -69,7 +69,10 @@ ofVec3f Parser::parseJointPoint() {
 	point.x = message.getArgAsFloat(0);
 	point.y = message.getArgAsFloat(1);
 	point.z = message.getArgAsFloat(2);
-	return orient(point);
+//	return orient(point);
+    
+    
+    return point;
 }
 
 TrackingState Parser::parseJointTrackingState() {

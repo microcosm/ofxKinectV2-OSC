@@ -201,6 +201,305 @@ Joint Skeleton::getHandTipRight() {
     return handTipRight;
 }
 
+
+
+
+//LOCAL TO SPINEMID
+vector<double> Skeleton::getThumbRightLocal() {
+    ofVec3f p = thumbRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(n.x);
+    ps.push_back(n.y);
+    ps.push_back(n.z);
+    
+    return ps;
+    
+}
+
+vector<double> Skeleton::getSpineBaseLocal() {
+    ofVec3f p =  spineBase.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+
+
+
+vector<double> Skeleton::getNeckLocal() {
+    ofVec3f p =  neck.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getHeadLocal() {
+    ofVec3f p =  head.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getShoulderLeftLocal() {
+    ofVec3f p =  shoulderLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getElbowLeftLocal() {
+    ofVec3f p =  elbowLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getWristLeftLocal() {
+    ofVec3f p =  wristLeft.getPoint();
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getHandLeftLocal() {
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f p = handLeft.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(n.x);
+    ps.push_back(n.y);
+    ps.push_back(n.z);
+    
+    return ps;
+
+}
+
+vector<double> Skeleton::getShoulderRightLocal() {
+    ofVec3f p =  shoulderRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getElbowRightLocal() {
+    ofVec3f p =  elbowRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getWristRightLocal() {
+    ofVec3f p =  wristRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getHandRightLocal() {
+    
+    ofVec3f p = handRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(n.x);
+    ps.push_back(n.y);
+    ps.push_back(n.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getHipLeftLocal() {
+    ofVec3f p =  hipLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getKneeLeftLocal() {
+    ofVec3f p =  kneeLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getAnkleLeftLocal() {
+    ofVec3f p =  ankleLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getFootLeftLocal() {
+    ofVec3f p =  footLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getHipRightLocal() {
+    ofVec3f p =  hipRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getKneeRightLocal() {
+    ofVec3f p =  kneeRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getAnkleRightLocal() {
+    ofVec3f p =  ankleRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getFootRightLocal() {
+    ofVec3f p =  footRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getSpineShoulderLocal() {
+    ofVec3f p =  spineShoulder.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getHandTipLeftLocal() {
+    ofVec3f p =  handTipLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getThumbLeftLocal() {
+    ofVec3f p =  thumbLeft.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+vector<double> Skeleton::getHandTipRightLocal() {
+    ofVec3f p =  handTipRight.getPoint();
+    ofVec3f sm = spineMid.getPoint();
+    ofVec3f n = sm - p;
+    vector<double> ps;
+    ps.push_back(p.x);
+    ps.push_back(p.y);
+    ps.push_back(p.z);
+    
+    return ps;
+}
+
+
+
+
 ofRectangle Skeleton::getLeftHandRange() {
     return interpreter.leftHandRange(&spineShoulder, &shoulderLeft);
 }

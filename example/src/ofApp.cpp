@@ -14,12 +14,13 @@ void ofApp::setup(){
 
 	//We could inspect the skeletons and draw them here in ofApp
 	//but for now let's pass the list to a default renderer class
-	renderer.setup(skeletons, largeFont);
+//	renderer.setup(skeletons, largeFont);
 }
 
 void ofApp::update(){
 	//Each frame check for new Kinect OSC messages
 	kinect.update();
+//    ofLog() << kinect.getSkeletons()->size();
 }
 
 void ofApp::draw(){
