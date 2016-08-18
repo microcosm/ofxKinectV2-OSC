@@ -48,6 +48,36 @@ public:
 	Joint getThumbLeft();
 	Joint getHandTipRight();
     
+    //local joints relative to spineMid
+    vector<double> getSpineBaseLocal();
+    vector<double> getNeckLocal();
+    vector<double> getHeadLocal();
+    vector<double> getShoulderLeftLocal();
+    vector<double> getElbowLeftLocal();
+    vector<double> getWristLeftLocal();
+    vector<double> getHandLeftLocal();
+    vector<double> getShoulderRightLocal();
+    vector<double> getElbowRightLocal();
+    vector<double> getWristRightLocal();
+    vector<double> getHandRightLocal();
+    vector<double> getHipLeftLocal();
+    vector<double> getKneeLeftLocal();
+    vector<double> getAnkleLeftLocal();
+    vector<double> getFootLeftLocal();
+    vector<double> getHipRightLocal();
+    vector<double> getKneeRightLocal();
+    vector<double> getAnkleRightLocal();
+    vector<double> getFootRightLocal();
+    vector<double> getSpineShoulderLocal();
+    vector<double> getHandTipLeftLocal();
+    vector<double> getHandTipRightLocal();
+    vector<double> getThumbRightLocal();
+    vector<double> getThumbLeftLocal();
+
+    
+    
+    
+    
     ofRectangle getLeftHandRange();
     ofRectangle getRightHandRange();
     ofVec3f getLeftHandNormal();

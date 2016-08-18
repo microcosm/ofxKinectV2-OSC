@@ -9,10 +9,10 @@ void Mapper::map(ofxOscMessage &_message) {
 
 	if(parser.isBody()) {
 		Skeleton* skeleton = getSkeleton(parser.parseBodyId());
-
 		if(parser.isJoint()) {
 			skeleton->setJoint(parser.parseJoint());
-		} else if(parser.isHand()) {
+		}
+        else if(parser.isHand()) {
 			skeleton->setHand(parser.parseHand());
 		}
 	}

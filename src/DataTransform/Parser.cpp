@@ -1,5 +1,11 @@
 #include "Parser.h"
 
+Parser::Parser(){
+    width = ofGetWidth();
+    height = ofGetHeight();
+}
+
+
 void Parser::setMessage(ofxOscMessage messageToParse) {
 	message = messageToParse;
 	tokenize(message.getAddress());
@@ -63,7 +69,10 @@ ofVec3f Parser::parseJointPoint() {
 	point.x = message.getArgAsFloat(0);
 	point.y = message.getArgAsFloat(1);
 	point.z = message.getArgAsFloat(2);
-	return orient(point);
+//	return orient(point);
+    
+    
+    return point;
 }
 
 TrackingState Parser::parseJointTrackingState() {
@@ -85,8 +94,8 @@ void Parser::tokenize(string address) {
 }
 
 ofVec3f Parser::orient(ofVec3f &point){
-	point.x = ofMap(point.x, -1, 1, 0, ofGetWidth());
-	point.y = ofMap(point.y, -1, 1, ofGetHeight(), 0);
+	point.x = ofMap(point.x, -1, 1, 0, width);
+	point.y = ofMap(point.y, -1, 1, height, 0);
 	point.z = ofMap(point.z, 0, 2, 30, 10);
 	return point;
 }
