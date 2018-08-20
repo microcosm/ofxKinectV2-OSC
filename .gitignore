@@ -44,6 +44,14 @@ apps/*
 # IDE
 #########################
 
+#Visual Studio
+
+/bin/
+!/bin/data/
+.vs
+*.vcxproj.user
+example/*.vcxproj.user
+
 # XCode
 *.pbxuser
 *.perspective

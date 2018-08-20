@@ -8,7 +8,7 @@ If you are used to using openFrameworks on a Mac, **and all you want is skeletal
 
 You still need Windows
 ----------------------
-For the foreseeable future, the Kinect V2 sensor runs only on Windows 8.1 using a USB3 port. There's no way around that, but what you can do is have a small, simple program on your Windows computer, which broadcasts to a Mac.
+For the foreseeable future, the Kinect V2 sensor runs only on Windows using a USB3 port. There's no way around that, but what you can do is have a small, simple program on your Windows computer, which broadcasts to a Mac.
 
 Then you can just leave Windows running and get back to doing the rest of your coding on a Mac. The Windows and Mac computers will of course have to be on the same network.
 
@@ -37,4 +37,4 @@ And the thin lines on the legs? That's where the bones are inferred (low confide
 Project dependencies
 --------------------
 - [ofxOSC](https://github.com/openframeworks/openFrameworks/tree/master/addons/ofxOsc) to recieve messages - it's part of the openFrameworks core
-- Tested against [openFrameworks 0.8.4](http://openframeworks.cc/download/)
+- Tested against [openFrameworks 0.10.0](http://openframeworks.cc/download/)

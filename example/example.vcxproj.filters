@@ -13,48 +13,6 @@
 		<ClCompile Include="src\ofApp.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
-			<Filter>addons\ofxOsc\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
-			<Filter>addons\ofxOsc\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp">
-			<Filter>addons\ofxOsc\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
-			<Filter>addons\ofxOsc\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
-			<Filter>addons\ofxOsc\src</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\ip\posix</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\ip\posix</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtilsWin.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocketWin.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-		</ClCompile>
-		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
-			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-		</ClCompile>
 		<ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Hand.cpp">
 			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
 		</ClCompile>
@@ -82,6 +40,42 @@
 		<ClCompile Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.cpp">
 			<Filter>addons\ofxKinectV2-OSC\src</Filter>
 		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp">
+			<Filter>addons\ofxOsc\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\ip\win32</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
+			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
+		</ClCompile>
 	</ItemGroup>
 	<ItemGroup>
 		<Filter Include="src">
@@ -89,6 +83,21 @@
 		</Filter>
 		<Filter Include="addons">
 			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinectV2-OSC">
+			<UniqueIdentifier>{F0D87036-4F02-FB7C-230B-2412}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinectV2-OSC\src">
+			<UniqueIdentifier>{E56E661B-BEA5-681A-A22E-55C4}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinectV2-OSC\src\Body">
+			<UniqueIdentifier>{C7AFF248-8116-11EB-C3A1-6061}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinectV2-OSC\src\DataTransform">
+			<UniqueIdentifier>{7747AD9E-7338-37A4-6E0E-244B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxKinectV2-OSC\src\Draw">
+			<UniqueIdentifier>{326DB2CF-57B9-0216-50F7-DF70}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxOsc">
 			<UniqueIdentifier>{D91DCA33-6E5D-4481-2AEC-9FBB}</UniqueIdentifier>
@@ -108,29 +117,11 @@
 		<Filter Include="addons\ofxOsc\libs\oscpack\src\ip">
 			<UniqueIdentifier>{5A029128-EB41-95C5-CBC0-CDED}</UniqueIdentifier>
 		</Filter>
-		<Filter Include="addons\ofxOsc\libs\oscpack\src\ip\posix">
-			<UniqueIdentifier>{354C95CF-A234-0360-C6BC-AF41}</UniqueIdentifier>
-		</Filter>
 		<Filter Include="addons\ofxOsc\libs\oscpack\src\ip\win32">
 			<UniqueIdentifier>{79DFDFE2-400B-8654-3675-01A3}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxOsc\libs\oscpack\src\osc">
 			<UniqueIdentifier>{EDACB89C-9768-9551-4D41-B590}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons\ofxKinectV2-OSC">
-			<UniqueIdentifier>{F0D87036-4F02-FB7C-230B-2412}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons\ofxKinectV2-OSC\src">
-			<UniqueIdentifier>{E56E661B-BEA5-681A-A22E-55C4}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons\ofxKinectV2-OSC\src\Body">
-			<UniqueIdentifier>{C7AFF248-8116-11EB-C3A1-6061}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons\ofxKinectV2-OSC\src\DataTransform">
-			<UniqueIdentifier>{7747AD9E-7338-37A4-6E0E-244B}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="addons\ofxKinectV2-OSC\src\Draw">
-			<UniqueIdentifier>{326DB2CF-57B9-0216-50F7-DF70}</UniqueIdentifier>
 		</Filter>
 	</ItemGroup>
 	<ItemGroup>
@@ -139,6 +130,33 @@
 		</ClInclude>
 		<ClInclude Include="src\ofApp.h">
 			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Hand.h">
+			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Interpreter.h">
+			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Joint.h">
+			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Skeleton.h">
+			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Logger.h">
+			<Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.h">
+			<Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.h">
+			<Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Draw\BodyRenderer.h">
+			<Filter>addons\ofxKinectV2-OSC\src\Draw</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.h">
+			<Filter>addons\ofxKinectV2-OSC\src</Filter>
 		</ClInclude>
 		<ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h">
 			<Filter>addons\ofxOsc\src</Filter>
@@ -199,33 +217,6 @@
 		</ClInclude>
 		<ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
 			<Filter>addons\ofxOsc\libs\oscpack\src\osc</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Hand.h">
-			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Interpreter.h">
-			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Joint.h">
-			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Body\Skeleton.h">
-			<Filter>addons\ofxKinectV2-OSC\src\Body</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Logger.h">
-			<Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Mapper.h">
-			<Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\DataTransform\Parser.h">
-			<Filter>addons\ofxKinectV2-OSC\src\DataTransform</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\Draw\BodyRenderer.h">
-			<Filter>addons\ofxKinectV2-OSC\src\Draw</Filter>
-		</ClInclude>
-		<ClInclude Include="..\..\..\addons\ofxKinectV2-OSC\src\ofxKinectV2OSC.h">
-			<Filter>addons\ofxKinectV2-OSC\src</Filter>
 		</ClInclude>
 	</ItemGroup>
 	<ItemGroup>
