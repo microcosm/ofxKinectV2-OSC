@@ -7,6 +7,7 @@ public:
     virtual void setup(vector<Skeleton>* _skeletons);
     virtual void setup(vector<Skeleton>* _skeletons, ofTrueTypeFont _font);
     void draw();
+    void drawSkeleton(Skeleton* _skeleton);
     void loadFont(ofTrueTypeFont _font);
 	
 	void toggleHands();

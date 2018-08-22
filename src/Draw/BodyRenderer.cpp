@@ -15,13 +15,17 @@ void BodyRenderer::draw() {
     ofPushStyle();
     ofSetLineWidth(8);
     for(int i = 0; i < skeletons->size(); i++) {
-        skeleton = &skeletons->at(i);
-        if(isDrawHandsEnabled)  drawHands();
-        if(isDrawBonesEnabled)  drawBones();
-        if(isDrawJointsEnabled) drawJoints();
-        if(isDrawRangesEnabled) drawRanges();
+        drawSkeleton(&skeletons->at(i));
     }
     ofPopStyle();
+}
+
+void BodyRenderer::drawSkeleton(Skeleton* _skeleton) {
+    skeleton = _skeleton;
+    if (isDrawHandsEnabled)  drawHands();
+    if (isDrawBonesEnabled)  drawBones();
+    if (isDrawJointsEnabled) drawJoints();
+    if (isDrawRangesEnabled) drawRanges();
 }
 
 void BodyRenderer::loadFont(ofTrueTypeFont _font) {
