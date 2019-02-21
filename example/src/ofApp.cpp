@@ -15,6 +15,12 @@ void ofApp::setup(){
 	//We could inspect the skeletons and draw them here in ofApp
 	//but for now let's pass the list to a default renderer class
 	renderer.setup(skeletons, largeFont);
+
+    // if you want to receive offline kinect recordings
+    //kinect.setReceiveFromFile("gestures1.txt");
+
+    // or you can record skeletons into a new file
+    //kinect.beginRecord("newRecording.txt");    
 }
 
 void ofApp::update(){

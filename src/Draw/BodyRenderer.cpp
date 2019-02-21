@@ -187,9 +187,12 @@ void BodyRenderer::drawRanges() {
 
 void BodyRenderer::drawRange(ofRectangle range, Joint hand, ofVec2f normal) {
     ofRect(range);
+    normalReport = ofToString(normal.x) + ", " + ofToString(normal.y);
     if(isFontEnabled) {
-        normalReport = ofToString(normal.x) + ", " + ofToString(normal.y);
         font.drawString(normalReport, hand.x(), hand.y() - 50);
+    }
+    else {
+        ofDrawBitmapString(normalReport, hand.x(), hand.y() - 50);
     }
 }
 

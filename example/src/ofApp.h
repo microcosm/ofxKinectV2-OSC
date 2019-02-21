@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxKinectV2OSC.h"
+#include "ofxOsc.h"
 
 class ofApp : public ofBaseApp{
 
@@ -24,6 +25,5 @@ class ofApp : public ofBaseApp{
 		Skeleton* skeleton;
 		vector<Skeleton>* skeletons;
 		ofTrueTypeFont smallFont, largeFont;
-
 		BodyRenderer renderer;
 };

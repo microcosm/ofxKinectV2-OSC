@@ -1,5 +1,10 @@
 #include "Joint.h"
 
+
+Joint::Joint() {
+    pointHistory.push_back(ofVec3f(0, 0, 0));
+}
+
 float Joint::x() {
     return currentPoint().x;
 }
@@ -12,11 +17,24 @@ float Joint::z() {
     return currentPoint().z;
 }
 
+ofParameter<float> * Joint::getPositionX() {
+    return &positionX;
+}
+ofParameter<float> * Joint::getPositionY() {
+    return &positionY;
+}
+ofParameter<float> * Joint::getPositionZ() {
+    return &positionZ;
+}
+
 void Joint::setType(string _type) {
 	type = _type;
 }
 
 void Joint::setPoint(ofVec3f _point) {
+    positionX.set(_point.x);
+    positionY.set(_point.y);
+    positionZ.set(_point.z);
 	pointHistory.push_front(_point);
 	trimHistory();
 }
